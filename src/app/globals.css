@@ -373,7 +373,7 @@
   );
 }
 
-/* Apple Specular Highlight Border for Work Experience (Rotated Angle & Balanced Opacity) */
+/* Apple Specular Highlight Border for Work Experience (Rotated Angle & 35% Opacity) */
 .apple-experience {
   position: relative;
   isolation: isolate;
@@ -388,7 +388,7 @@
   box-sizing: border-box;
   background: linear-gradient(
     165deg,
-    rgba(0, 0, 0, 0.34) 0%,
+    rgba(0, 0, 0, 0.35) 0%,
     rgba(0, 0, 0, 0.1) 45%,
     rgba(0, 0, 0, 0.1) 55%,
     rgba(0, 0, 0, 0.2) 100%
@@ -406,17 +406,17 @@
 :is(.dark .apple-experience)::before {
   background: linear-gradient(
     165deg,
-    rgba(255, 255, 255, 0.46) 0%,
-    rgba(255, 255, 255, 0.12) 45%,
-    rgba(255, 255, 255, 0.12) 55%,
-    rgba(255, 255, 255, 0.26) 100%
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.1) 55%,
+    rgba(255, 255, 255, 0.2) 100%
   );
 }
 
 .apple-experience:hover::before {
   background: linear-gradient(
     165deg,
-    rgba(0, 0, 0, 0.48) 0%,
+    rgba(0, 0, 0, 0.5) 0%,
     rgba(0, 0, 0, 0.14) 45%,
     rgba(0, 0, 0, 0.14) 55%,
     rgba(0, 0, 0, 0.28) 100%
@@ -427,10 +427,10 @@
 :is(.dark .apple-experience)::before {
   background: linear-gradient(
     165deg,
-    rgba(255, 255, 255, 0.66) 0%,
-    rgba(255, 255, 255, 0.18) 45%,
-    rgba(255, 255, 255, 0.18) 55%,
-    rgba(255, 255, 255, 0.42) 100%
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.15) 55%,
+    rgba(255, 255, 255, 0.35) 100%
   );
 }
 
