@@ -380,7 +380,7 @@ export function Header() {
             ref={navRef}
             className={`relative border-0 transition-all duration-400 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${
               condensed
-                ? "rounded-full bg-zinc-900/[0.04] px-2 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.03)] dark:bg-white/[0.05] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25)]"
+                ? "apple-btn rounded-full bg-zinc-900/[0.04] px-2 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.03)] dark:bg-white/[0.05] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25)]"
                 : "rounded-none bg-transparent shadow-none"
             }`}
             style={
@@ -405,7 +405,7 @@ export function Header() {
             <div className="animate-in fade-in-0 zoom-in-95 absolute top-full right-0 left-0 z-50 mt-2 duration-200 md:hidden">
               <nav
                 aria-label="Mobile Navigation"
-                className="flex flex-col gap-3 rounded-2xl border-0 bg-white/80 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.06)] dark:bg-white/[0.06] dark:shadow-[0_16px_48px_rgba(0,0,0,0.75),0_8px_24px_rgba(0,0,0,0.4)]"
+                className="apple-btn flex flex-col gap-3 rounded-2xl border-0 bg-white/80 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.06)] dark:bg-white/[0.06] dark:shadow-[0_16px_48px_rgba(0,0,0,0.75),0_8px_24px_rgba(0,0,0,0.4)]"
                 style={{
                   WebkitBackdropFilter:
                     "url(#nav-liquid-glass) blur(12px) saturate(1.5)",
