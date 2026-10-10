@@ -336,7 +336,7 @@ export function HeroSection() {
                 yOffset={6}
                 blur="4px"
               >
-                <div className="apple-card group flex items-center justify-between gap-4 rounded-xl bg-white/40 p-3.5 transition-all duration-200 hover:bg-white/80 dark:bg-zinc-900/20 dark:hover:bg-zinc-900/50">
+                <div className="apple-experience group flex items-center justify-between gap-4 rounded-xl bg-white/40 p-3.5 transition-all duration-200 hover:bg-white/80 dark:bg-zinc-900/20 dark:hover:bg-zinc-900/50">
                   <div className="flex items-center gap-3.5 min-w-0">
                     <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-zinc-200/80 bg-white p-1 shadow-2xs dark:border-zinc-800 dark:bg-zinc-950">
                       <Image

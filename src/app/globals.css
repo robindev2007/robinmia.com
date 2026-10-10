@@ -373,3 +373,64 @@
   );
 }
 
+/* Apple Specular Highlight Border for Work Experience (Rotated Angle & Softer Opacity) */
+.apple-experience {
+  position: relative;
+  isolation: isolate;
+}
+
+.apple-experience::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    165deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.03) 45%,
+    rgba(0, 0, 0, 0.03) 55%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.dark .apple-experience::before,
+:is(.dark .apple-experience)::before {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.03) 55%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+
+.apple-experience:hover::before {
+  background: linear-gradient(
+    165deg,
+    rgba(0, 0, 0, 0.28) 0%,
+    rgba(0, 0, 0, 0.05) 45%,
+    rgba(0, 0, 0, 0.05) 55%,
+    rgba(0, 0, 0, 0.14) 100%
+  );
+}
+
+.dark .apple-experience:hover::before,
+:is(.dark .apple-experience)::before {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.05) 45%,
+    rgba(255, 255, 255, 0.05) 55%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
+
