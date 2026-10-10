@@ -64,7 +64,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="mt-16 w-full max-w-3xl pb-16">
       <BlurFade delay={BLUR_FADE_DELAY * 15} yOffset={8} blur="6px">
-        <div className="relative overflow-hidden rounded-2xl border border-zinc-200/80 bg-white/60 p-6 shadow-sm backdrop-blur-md sm:p-8 dark:border-zinc-800/80 dark:bg-zinc-900/40">
+        <div className="apple-card relative overflow-hidden rounded-2xl bg-white/60 p-6 shadow-sm backdrop-blur-md sm:p-8 dark:bg-zinc-900/40">
           {/* Subtle glow accent in corner */}
           <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-zinc-200/40 blur-3xl dark:bg-zinc-800/30" />
 

@@ -312,3 +312,64 @@
   );
 }
 
+/* Apple Specular Highlight Border for Cards */
+.apple-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.apple-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(0, 0, 0, 0.04) 45%,
+    rgba(0, 0, 0, 0.04) 55%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.dark .apple-card::before,
+:is(.dark .apple-card)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.04) 55%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+}
+
+.apple-card:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.06) 45%,
+    rgba(0, 0, 0, 0.06) 55%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.dark .apple-card:hover::before,
+:is(.dark .apple-card):hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.08) 55%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+
