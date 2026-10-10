@@ -194,7 +194,7 @@ export function Header() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200/80 bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:border-zinc-300 hover:bg-zinc-100 hover:text-zinc-950 active:scale-95 dark:border-white/12 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800 dark:hover:text-white"
+        className="apple-btn flex h-8 w-8 items-center justify-center rounded-full bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:bg-zinc-100 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white"
       >
         <GithubIcon className="h-4 w-4" />
       </Link>
@@ -204,7 +204,7 @@ export function Header() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200/80 bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:border-blue-500/50 hover:bg-blue-500/15 hover:text-blue-500 active:scale-95 dark:border-white/12 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:border-blue-500/50 dark:hover:bg-blue-500/15 dark:hover:text-blue-400"
+        className="apple-btn flex h-8 w-8 items-center justify-center rounded-full bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:bg-blue-500/15 hover:text-blue-500 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:bg-blue-500/15 dark:hover:text-blue-400"
       >
         <LinkedinIcon className="h-4 w-4" />
       </Link>
@@ -214,7 +214,7 @@ export function Header() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Email Robin"
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200/80 bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:border-emerald-500/50 hover:bg-emerald-500/15 hover:text-emerald-500 active:scale-95 dark:border-white/12 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:border-emerald-500/50 dark:hover:bg-emerald-500/15 dark:hover:text-emerald-400"
+        className="apple-btn flex h-8 w-8 items-center justify-center rounded-full bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:bg-emerald-500/15 hover:text-emerald-500 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:bg-emerald-500/15 dark:hover:text-emerald-400"
       >
         <Mail className="h-4 w-4" />
       </Link>
@@ -224,7 +224,7 @@ export function Header() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Resume"
-        className="hidden sm:flex items-center gap-1.5 rounded-full border border-zinc-200/80 bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:border-zinc-300 hover:text-zinc-950 active:scale-95 dark:border-white/12 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:text-white"
+        className="apple-btn hidden sm:flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
       >
         <FileText className="h-3.5 w-3.5" />
         <span>Resume</span>
@@ -240,7 +240,7 @@ export function Header() {
     <div className="flex items-center justify-between gap-4 px-3 py-1 sm:px-4">
       {/* Brand Logo & Name */}
       <Link href="/" className="flex shrink-0 items-center gap-2.5 py-1">
-        <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-zinc-200/80 bg-zinc-100 shadow-2xs dark:border-white/15 dark:bg-zinc-800">
+        <div className="apple-btn relative h-7 w-7 shrink-0 overflow-hidden rounded-full bg-zinc-100 shadow-2xs dark:bg-zinc-800">
           <Image
             src="/robin.jpg"
             alt="Robin Mia"

@@ -236,7 +236,7 @@ export function HeroSection() {
                   href="https://github.com/robindev2007"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 rounded-lg border border-zinc-200/60 bg-white/50 p-2.5 text-zinc-500 shadow-2xs transition-all hover:border-zinc-300 hover:text-zinc-950 active:scale-95 sm:p-2 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+                  className="apple-btn shrink-0 rounded-lg bg-white/60 p-2.5 text-zinc-500 shadow-2xs transition-all hover:text-zinc-950 active:scale-95 sm:p-2 dark:bg-zinc-900/60 dark:text-zinc-400 dark:hover:text-white"
                   aria-label="GitHub"
                 >
                   <svg
@@ -248,7 +248,7 @@ export function HeroSection() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0 1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
                 </a>
 
@@ -257,7 +257,7 @@ export function HeroSection() {
                   href="https://www.linkedin.com/in/robin2007/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 rounded-lg border border-zinc-200/60 bg-white/50 p-2.5 text-zinc-500 shadow-2xs transition-all hover:border-zinc-300 hover:text-zinc-950 active:scale-95 sm:p-2 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+                  className="apple-btn shrink-0 rounded-lg bg-white/60 p-2.5 text-zinc-500 shadow-2xs transition-all hover:text-zinc-950 active:scale-95 sm:p-2 dark:bg-zinc-900/60 dark:text-zinc-400 dark:hover:text-white"
                   aria-label="LinkedIn"
                 >
                   <svg
@@ -280,7 +280,7 @@ export function HeroSection() {
                   href="mailto:robindev2007@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 rounded-lg border border-zinc-200/60 bg-white/50 p-2.5 text-zinc-500 shadow-2xs transition-all hover:border-zinc-300 hover:text-zinc-950 active:scale-95 sm:p-2 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+                  className="apple-btn shrink-0 rounded-lg bg-white/60 p-2.5 text-zinc-500 shadow-2xs transition-all hover:text-zinc-950 active:scale-95 sm:p-2 dark:bg-zinc-900/60 dark:text-zinc-400 dark:hover:text-white"
                   aria-label="Email"
                 >
                   <svg
@@ -304,14 +304,14 @@ export function HeroSection() {
                   href="https://drive.google.com/file/d/1EWkgK6_jYxNCpK0hV3oBWIqGzW5UMe31/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 rounded-xl border border-zinc-200 bg-white px-4 py-2 text-center text-[13px] font-medium tracking-wide text-zinc-800 shadow-2xs transition-all hover:bg-zinc-50 hover:text-zinc-950 active:scale-95 sm:flex-initial dark:border-zinc-800/80 dark:bg-[#121212] dark:text-zinc-200 dark:hover:bg-zinc-900 dark:hover:text-white"
+                  className="apple-btn flex-1 rounded-xl bg-white px-4 py-2 text-center text-[13px] font-medium tracking-wide text-zinc-800 shadow-2xs transition-all hover:bg-zinc-50 hover:text-zinc-950 active:scale-95 sm:flex-initial dark:bg-[#151516] dark:text-zinc-200 dark:hover:bg-zinc-900 dark:hover:text-white"
                 >
                   Resume
                 </a>
 
                 <a
                   href="#contact"
-                  className="flex-1 rounded-xl bg-zinc-900 px-4 py-2 text-center text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 sm:flex-initial dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+                  className="apple-btn flex-1 rounded-xl bg-zinc-900 px-4 py-2 text-center text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 sm:flex-initial dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
                 >
                   Get in touch
                 </a>

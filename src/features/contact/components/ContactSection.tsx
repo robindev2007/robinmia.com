@@ -88,7 +88,7 @@ export function ContactSection() {
               {/* Copy Email Pill Button */}
               <button
                 onClick={handleCopyEmail}
-                className="group flex flex-1 items-center justify-between gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-3 text-left shadow-2xs transition-all duration-200 hover:border-zinc-300 hover:bg-zinc-50 active:scale-[0.99] dark:border-zinc-800 dark:bg-zinc-900/90 dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+                className="apple-btn group flex flex-1 items-center justify-between gap-3 rounded-xl bg-white px-4 py-3 text-left shadow-2xs transition-all duration-200 hover:bg-zinc-50 active:scale-[0.99] dark:bg-[#151516] dark:hover:bg-zinc-900"
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
@@ -104,7 +104,7 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-200/80 bg-zinc-50 text-zinc-500 transition-colors group-hover:border-zinc-300 group-hover:text-zinc-900 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:text-white">
+                <div className="apple-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-50 text-zinc-500 transition-colors group-hover:text-zinc-900 dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:text-white">
                   {copied ? (
                     <Check className="h-4 w-4 text-emerald-500" />
                   ) : (
@@ -116,7 +116,7 @@ export function ContactSection() {
               {/* Direct Send Mail Button */}
               <a
                 href={`mailto:${email}`}
-                className="flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+                className="apple-btn flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
               >
                 <Send className="h-3.5 w-3.5" />
                 <span>Send Message</span>
@@ -133,7 +133,7 @@ export function ContactSection() {
                 href="https://github.com/robindev2007"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-lg border border-zinc-200/60 bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800/60 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+                className="apple-btn flex items-center gap-1.5 rounded-lg bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:text-white"
               >
                 <GithubIcon className="h-3 w-3" />
                 <span>GitHub</span>
@@ -144,7 +144,7 @@ export function ContactSection() {
                 href="https://www.linkedin.com/in/robin2007/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-lg border border-zinc-200/60 bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800/60 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+                className="apple-btn flex items-center gap-1.5 rounded-lg bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:text-white"
               >
                 <LinkedinIcon className="h-3 w-3" />
                 <span>LinkedIn</span>
@@ -155,7 +155,7 @@ export function ContactSection() {
                 href="https://drive.google.com/file/d/1EWkgK6_jYxNCpK0hV3oBWIqGzW5UMe31/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-lg border border-zinc-200/60 bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800/60 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white"
+                className="apple-btn flex items-center gap-1.5 rounded-lg bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:text-white"
               >
                 <FileText className="h-3 w-3" />
                 <span>Resume</span>

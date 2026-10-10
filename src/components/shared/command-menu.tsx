@@ -117,7 +117,7 @@ export function CommandMenu() {
       <div className="fixed bottom-6 right-6 z-40 hidden sm:block">
         <button
           onClick={() => setOpen(true)}
-          className="group flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/80 px-3 py-1.5 text-[12px] font-medium text-zinc-600 shadow-md backdrop-blur-md transition-all duration-200 hover:border-zinc-300 hover:bg-white hover:text-zinc-950 active:scale-95 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:bg-zinc-900 dark:hover:text-white"
+          className="apple-btn group flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-[12px] font-medium text-zinc-600 shadow-md backdrop-blur-md transition-all duration-200 hover:bg-white hover:text-zinc-950 active:scale-95 dark:bg-zinc-900/80 dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
         >
           <Search className="h-3.5 w-3.5 text-zinc-400 transition-colors group-hover:text-zinc-900 dark:group-hover:text-white" />
           <span>Quick Menu</span>
