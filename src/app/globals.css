@@ -327,17 +327,17 @@
   box-sizing: border-box;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.22) 0%,
-    rgba(0, 0, 0, 0.04) 45%,
-    rgba(0, 0, 0, 0.04) 55%,
-    rgba(0, 0, 0, 0.12) 100%
+    rgba(0, 0, 0, 0.36) 0%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0.1) 55%,
+    rgba(0, 0, 0, 0.22) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
-  z-index: 10;
+  z-index: 20;
   transition: opacity 0.3s ease, background 0.3s ease;
 }
 
@@ -345,20 +345,20 @@
 :is(.dark .apple-card)::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.32) 0%,
-    rgba(255, 255, 255, 0.04) 45%,
-    rgba(255, 255, 255, 0.04) 55%,
-    rgba(255, 255, 255, 0.18) 100%
+    rgba(255, 255, 255, 0.48) 0%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.12) 55%,
+    rgba(255, 255, 255, 0.28) 100%
   );
 }
 
 .apple-card:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.35) 0%,
-    rgba(0, 0, 0, 0.06) 45%,
-    rgba(0, 0, 0, 0.06) 55%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.16) 45%,
+    rgba(0, 0, 0, 0.16) 55%,
+    rgba(0, 0, 0, 0.32) 100%
   );
 }
 
@@ -366,10 +366,10 @@
 :is(.dark .apple-card):hover::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.08) 45%,
-    rgba(255, 255, 255, 0.08) 55%,
-    rgba(255, 255, 255, 0.3) 100%
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.2) 45%,
+    rgba(255, 255, 255, 0.2) 55%,
+    rgba(255, 255, 255, 0.45) 100%
   );
 }
 
