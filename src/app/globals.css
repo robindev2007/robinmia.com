@@ -190,7 +190,7 @@
   );
 }
 
-/* Subtle Apple Specular Border for Skills & Badges */
+/* Apple Specular Border for Skills & Badges */
 .apple-skill {
   position: relative;
   isolation: isolate;
@@ -205,10 +205,10 @@
   box-sizing: border-box;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.02) 45%,
-    rgba(0, 0, 0, 0.02) 55%,
-    rgba(0, 0, 0, 0.08) 100%
+    rgba(0, 0, 0, 0.26) 0%,
+    rgba(0, 0, 0, 0.06) 45%,
+    rgba(0, 0, 0, 0.06) 55%,
+    rgba(0, 0, 0, 0.16) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
@@ -223,31 +223,31 @@
 :is(.dark .apple-skill)::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.02) 45%,
-    rgba(255, 255, 255, 0.02) 55%,
-    rgba(255, 255, 255, 0.12) 100%
+    rgba(255, 255, 255, 0.36) 0%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(255, 255, 255, 0.06) 55%,
+    rgba(255, 255, 255, 0.22) 100%
   );
 }
 
 .apple-skill:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.28) 0%,
-    rgba(0, 0, 0, 0.04) 45%,
-    rgba(0, 0, 0, 0.04) 55%,
-    rgba(0, 0, 0, 0.14) 100%
+    rgba(0, 0, 0, 0.38) 0%,
+    rgba(0, 0, 0, 0.08) 45%,
+    rgba(0, 0, 0, 0.08) 55%,
+    rgba(0, 0, 0, 0.24) 100%
   );
 }
 
 .dark .apple-skill:hover::before,
-:is(.dark .apple-skill):hover::before {
+:is(.dark .apple-skill)::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.04) 45%,
-    rgba(255, 255, 255, 0.04) 55%,
-    rgba(255, 255, 255, 0.22) 100%
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.08) 55%,
+    rgba(255, 255, 255, 0.35) 100%
   );
 }
 
