@@ -190,6 +190,67 @@
   );
 }
 
+/* Subtle Apple Specular Border for Skills & Badges */
+.apple-skill {
+  position: relative;
+  isolation: isolate;
+}
+
+.apple-skill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.02) 45%,
+    rgba(0, 0, 0, 0.02) 55%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.dark .apple-skill::before,
+:is(.dark .apple-skill)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.02) 45%,
+    rgba(255, 255, 255, 0.02) 55%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+}
+
+.apple-skill:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.28) 0%,
+    rgba(0, 0, 0, 0.04) 45%,
+    rgba(0, 0, 0, 0.04) 55%,
+    rgba(0, 0, 0, 0.14) 100%
+  );
+}
+
+.dark .apple-skill:hover::before,
+:is(.dark .apple-skill):hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.04) 55%,
+    rgba(255, 255, 255, 0.22) 100%
+  );
+}
+
 /* For primary/inverse solid buttons (dark in light mode, white in dark mode) */
 .apple-btn-primary {
   position: relative;
