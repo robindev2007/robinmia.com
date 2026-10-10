@@ -50,10 +50,8 @@ const NAV_ITEMS = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [condensed, setCondensed] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
-  const glassMapRef = useRef<SVGFEImageElement>(null);
 
   const close = () => setOpen(false);
 
@@ -74,85 +72,22 @@ export function Header() {
     };
   }, [open]);
 
-  // Liquid glass map updater & scroll detection
+  // Smooth scroll detection with requestAnimationFrame
   useEffect(() => {
-    let mapTimer: NodeJS.Timeout;
-    const generateMap = () => {
-      if (!navRef.current || !glassMapRef.current) return;
-      const rect = navRef.current.getBoundingClientRect();
-      const w = Math.max(rect.width, 100);
-      const h = Math.max(rect.height, 40);
-
-      const canvas = document.createElement("canvas");
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-
-      const grad = ctx.createRadialGradient(
-        w / 2,
-        h / 2,
-        0,
-        w / 2,
-        h / 2,
-        Math.max(w, h) / 2
-      );
-      grad.addColorStop(0, "#808080");
-      grad.addColorStop(0.7, "#909090");
-      grad.addColorStop(1, "#a0a0a0");
-
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-
-      glassMapRef.current.setAttribute("href", canvas.toDataURL());
-    };
-
-    const scheduleGlassMap = () => {
-      clearTimeout(mapTimer);
-      mapTimer = setTimeout(generateMap, 100);
-    };
-
-    let resizeObserver: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== "undefined" && navRef.current) {
-      resizeObserver = new ResizeObserver(scheduleGlassMap);
-      resizeObserver.observe(navRef.current);
-    }
-
-    const condenseOn = 70;
-    const condenseOff = 25;
-    let isCondensed = false;
     let ticking = false;
-
     const handleScroll = () => {
-      ticking = false;
-      const y = window.scrollY;
-      if (!isCondensed && y > condenseOn) {
-        isCondensed = true;
-        setCondensed(true);
-        scheduleGlassMap();
-      } else if (isCondensed && y < condenseOff) {
-        isCondensed = false;
-        setCondensed(false);
-        scheduleGlassMap();
-      }
-    };
-
-    const onScroll = () => {
       if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
         ticking = true;
-        requestAnimationFrame(handleScroll);
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
     handleScroll();
-
-    return () => {
-      clearTimeout(mapTimer);
-      if (resizeObserver) resizeObserver.disconnect();
-      window.removeEventListener("scroll", scheduleGlassMap);
-      window.removeEventListener("scroll", onScroll);
-    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Keyboard escape & resize handlers
@@ -237,9 +172,9 @@ export function Header() {
   );
 
   const renderNavContent = () => (
-    <div className="flex items-center justify-between gap-4 px-3 py-1 sm:px-4">
+    <div className="flex items-center justify-between gap-4 px-3 py-1.5 sm:px-4">
       {/* Brand Logo & Name */}
-      <Link href="/" className="flex shrink-0 items-center gap-2.5 py-1">
+      <Link href="/" className="flex shrink-0 items-center gap-2.5 py-0.5">
         <div className="apple-btn relative h-7 w-7 shrink-0 overflow-hidden rounded-full bg-zinc-100 shadow-2xs dark:bg-zinc-800">
           <Image
             src="/robin.jpg"
@@ -297,7 +232,7 @@ export function Header() {
       {/* Mobile Backdrop */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] md:hidden"
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs transition-opacity animate-in fade-in duration-200 md:hidden"
           onClick={close}
           aria-hidden="true"
         />
@@ -305,97 +240,16 @@ export function Header() {
 
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-2.5 transition-all duration-300 md:px-8"
+        className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-3 transition-all duration-300 md:px-8"
       >
-        {/* SVG Liquid Glass Filter Definition with Chromatic Aberration Split */}
-        <svg
-          className="pointer-events-none absolute h-0 w-0 overflow-hidden"
-          style={{ position: "absolute", width: 0, height: 0 }}
-          aria-hidden="true"
-          focusable="false"
-        >
-          <defs>
-            <filter id="nav-liquid-glass" colorInterpolationFilters="sRGB">
-              <feImage
-                ref={glassMapRef}
-                x="0"
-                y="0"
-                width="100%"
-                height="100%"
-                preserveAspectRatio="none"
-                result="map"
-              />
-              <feDisplacementMap
-                in="SourceGraphic"
-                in2="map"
-                xChannelSelector="R"
-                yChannelSelector="B"
-                scale="-50"
-                result="dispRed"
-              />
-              <feColorMatrix
-                in="dispRed"
-                type="matrix"
-                values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
-                result="red"
-              />
-              <feDisplacementMap
-                in="SourceGraphic"
-                in2="map"
-                xChannelSelector="R"
-                yChannelSelector="B"
-                scale="-47"
-                result="dispGreen"
-              />
-              <feColorMatrix
-                in="dispGreen"
-                type="matrix"
-                values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"
-                result="green"
-              />
-              <feDisplacementMap
-                in="SourceGraphic"
-                in2="map"
-                xChannelSelector="R"
-                yChannelSelector="B"
-                scale="-44"
-                result="dispBlue"
-              />
-              <feColorMatrix
-                in="dispBlue"
-                type="matrix"
-                values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"
-                result="blue"
-              />
-              <feBlend in="red" in2="green" mode="screen" result="rg" />
-              <feBlend in="rg" in2="blue" mode="screen" result="output" />
-              <feGaussianBlur in="output" stdDeviation="0.7" />
-            </filter>
-          </defs>
-        </svg>
-
         <div className="relative mx-auto w-full max-w-[1040px]">
-          {/* Crystal Liquid Glass Bar on Scroll */}
+          {/* Apple Floating Glass Capsule */}
           <div
-            ref={navRef}
-            className={`relative border-0 transition-all duration-400 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${
-              condensed
-                ? "apple-btn rounded-full bg-zinc-900/[0.04] px-2 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.03)] dark:bg-white/[0.05] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25)]"
-                : "rounded-none bg-transparent shadow-none"
+            className={`apple-header-pill relative rounded-full border-0 ${
+              scrolled
+                ? "is-scrolled bg-white/70 shadow-[0_8px_32px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.04)] backdrop-blur-xl dark:bg-[#141416]/75 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),0_2px_8px_rgba(0,0,0,0.3)]"
+                : "bg-transparent shadow-none"
             }`}
-            style={
-              condensed
-                ? {
-                    WebkitBackdropFilter:
-                      "url(#nav-liquid-glass) blur(8px) saturate(1.4)",
-                    backdropFilter:
-                      "url(#nav-liquid-glass) blur(8px) saturate(1.4)",
-                  }
-                : {
-                    WebkitBackdropFilter: "none",
-                    backdropFilter: "none",
-                  }
-            }
           >
             {renderNavContent()}
           </div>
@@ -405,17 +259,9 @@ export function Header() {
             <div className="animate-in fade-in-0 zoom-in-95 absolute top-full right-0 left-0 z-50 mt-2 duration-200 md:hidden">
               <nav
                 aria-label="Mobile Navigation"
-                className="apple-btn flex flex-col gap-3 rounded-2xl border-0 bg-white/80 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.06)] dark:bg-white/[0.06] dark:shadow-[0_16px_48px_rgba(0,0,0,0.75),0_8px_24px_rgba(0,0,0,0.4)]"
-                style={{
-                  WebkitBackdropFilter:
-                    "url(#nav-liquid-glass) blur(12px) saturate(1.5)",
-                  backdropFilter:
-                    "url(#nav-liquid-glass) blur(12px) saturate(1.5)",
-                }}
+                className="apple-btn flex flex-col gap-3 rounded-2xl bg-white/85 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.06)] backdrop-blur-2xl dark:bg-[#141416]/90 dark:shadow-[0_16px_40px_rgba(0,0,0,0.7),0_4px_16px_rgba(0,0,0,0.4)]"
               >
-                <div className="flex flex-col gap-1">
-                  {navLinks}
-                </div>
+                <div className="flex flex-col gap-1">{navLinks}</div>
 
                 <div className="mt-1 flex items-center justify-center pt-2">
                   {socialLinks}
@@ -430,4 +276,3 @@ export function Header() {
 }
 
 export default Header;
-
