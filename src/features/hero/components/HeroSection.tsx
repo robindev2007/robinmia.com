@@ -394,7 +394,7 @@ export function HeroSection() {
                     {category.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex cursor-default items-center gap-2 rounded-lg border border-zinc-200/70 bg-white/60 px-2.5 py-1 shadow-2xs transition-all duration-300 hover:border-zinc-300 dark:border-zinc-800/60 dark:bg-zinc-900/30 dark:hover:border-zinc-700"
+                        className="apple-btn flex cursor-default items-center gap-2 rounded-lg bg-white/60 px-2.5 py-1 shadow-2xs transition-all duration-200 hover:scale-[1.02] hover:bg-white/90 active:scale-[0.98] dark:bg-zinc-900/40 dark:hover:bg-zinc-800/60"
                       >
                         <Image
                           src={skill.icon}
@@ -531,7 +531,7 @@ export function HeroSection() {
                       {proj.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-md bg-zinc-100/80 px-2 py-0.5 font-mono text-[10px] tracking-tight text-zinc-600 dark:bg-zinc-800/60 dark:text-zinc-300"
+                          className="apple-btn rounded-md bg-zinc-100/80 px-2 py-0.5 font-mono text-[10px] tracking-tight text-zinc-600 dark:bg-zinc-800/60 dark:text-zinc-300"
                         >
                           {tag}
                         </span>
