@@ -205,10 +205,10 @@
   box-sizing: border-box;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.14) 0%,
-    rgba(0, 0, 0, 0.03) 45%,
-    rgba(0, 0, 0, 0.03) 55%,
-    rgba(0, 0, 0, 0.08) 100%
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.015) 45%,
+    rgba(0, 0, 0, 0.015) 55%,
+    rgba(0, 0, 0, 0.04) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
@@ -223,20 +223,20 @@
 :is(.dark .apple-skill)::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0.03) 55%,
-    rgba(255, 255, 255, 0.1) 100%
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.015) 45%,
+    rgba(255, 255, 255, 0.015) 55%,
+    rgba(255, 255, 255, 0.05) 100%
   );
 }
 
 .apple-skill:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.22) 0%,
-    rgba(0, 0, 0, 0.05) 45%,
-    rgba(0, 0, 0, 0.05) 55%,
-    rgba(0, 0, 0, 0.12) 100%
+    rgba(0, 0, 0, 0.14) 0%,
+    rgba(0, 0, 0, 0.03) 45%,
+    rgba(0, 0, 0, 0.03) 55%,
+    rgba(0, 0, 0, 0.08) 100%
   );
 }
 
@@ -244,10 +244,10 @@
 :is(.dark .apple-skill)::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.32) 0%,
-    rgba(255, 255, 255, 0.05) 45%,
-    rgba(255, 255, 255, 0.05) 55%,
-    rgba(255, 255, 255, 0.18) 100%
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.03) 55%,
+    rgba(255, 255, 255, 0.1) 100%
   );
 }
 
