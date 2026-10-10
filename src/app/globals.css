@@ -133,7 +133,6 @@
 .apple-btn {
   position: relative;
   isolation: isolate;
-  background-clip: padding-box;
 }
 
 .apple-btn::before {
@@ -142,48 +141,113 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
+  box-sizing: border-box;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.16) 0%,
-    rgba(0, 0, 0, 0.02) 48%,
-    rgba(0, 0, 0, 0.02) 52%,
-    rgba(0, 0, 0, 0.1) 100%
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.04) 45%,
+    rgba(0, 0, 0, 0.04) 55%,
+    rgba(0, 0, 0, 0.2) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
-  z-index: 1;
+  z-index: 10;
   transition: opacity 0.2s ease, background 0.2s ease;
 }
 
-.dark .apple-btn::before {
+.dark .apple-btn::before,
+:is(.dark .apple-btn)::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.36) 0%,
-    rgba(255, 255, 255, 0.02) 48%,
-    rgba(255, 255, 255, 0.02) 52%,
-    rgba(255, 255, 255, 0.2) 100%
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.04) 55%,
+    rgba(255, 255, 255, 0.28) 100%
   );
 }
 
 .apple-btn:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.28) 0%,
-    rgba(0, 0, 0, 0.05) 48%,
-    rgba(0, 0, 0, 0.05) 52%,
-    rgba(0, 0, 0, 0.18) 100%
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.08) 45%,
+    rgba(0, 0, 0, 0.08) 55%,
+    rgba(0, 0, 0, 0.3) 100%
   );
 }
 
-.dark .apple-btn:hover::before {
+.dark .apple-btn:hover::before,
+:is(.dark .apple-btn):hover::before {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.05) 48%,
-    rgba(255, 255, 255, 0.05) 52%,
-    rgba(255, 255, 255, 0.3) 100%
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.1) 55%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+}
+
+/* For primary/inverse solid buttons (dark in light mode, white in dark mode) */
+.apple-btn-primary {
+  position: relative;
+  isolation: isolate;
+}
+
+.apple-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.04) 55%,
+    rgba(255, 255, 255, 0.25) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.dark .apple-btn-primary::before,
+:is(.dark .apple-btn-primary)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.04) 45%,
+    rgba(0, 0, 0, 0.04) 55%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.apple-btn-primary:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.08) 55%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+
+.dark .apple-btn-primary:hover::before,
+:is(.dark .apple-btn-primary):hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.08) 45%,
+    rgba(0, 0, 0, 0.08) 55%,
+    rgba(0, 0, 0, 0.3) 100%
   );
 }
 

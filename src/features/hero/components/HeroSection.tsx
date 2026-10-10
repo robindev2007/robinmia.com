@@ -311,7 +311,7 @@ export function HeroSection() {
 
                 <a
                   href="#contact"
-                  className="apple-btn flex-1 rounded-xl bg-zinc-900 px-4 py-2 text-center text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 sm:flex-initial dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+                  className="apple-btn-primary flex-1 rounded-xl bg-zinc-900 px-4 py-2 text-center text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 sm:flex-initial dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
                 >
                   Get in touch
                 </a>

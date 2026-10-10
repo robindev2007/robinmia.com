@@ -116,7 +116,7 @@ export function ContactSection() {
               {/* Direct Send Mail Button */}
               <a
                 href={`mailto:${email}`}
-                className="apple-btn flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+                className="apple-btn-primary flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-5 py-3 text-[13px] font-medium tracking-wide text-white shadow-2xs transition-all hover:bg-zinc-800 active:scale-95 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
               >
                 <Send className="h-3.5 w-3.5" />
                 <span>Send Message</span>
