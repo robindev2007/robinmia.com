@@ -20,6 +20,7 @@ import {
   ArrowUp,
   Share2,
   Send,
+  Users,
 } from "lucide-react";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -190,6 +191,18 @@ export function CommandMenu() {
                   >
                     <FolderGit2 className="h-4 w-4 text-zinc-400" />
                     <span>Featured Projects</span>
+                  </Command.Item>
+
+                  <Command.Item
+                    onSelect={() =>
+                      runCommand(() => {
+                        window.location.href = "/network";
+                      })
+                    }
+                    className="flex cursor-pointer select-none items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[13px] text-zinc-700 outline-hidden transition-colors aria-selected:bg-zinc-100 aria-selected:text-zinc-950 dark:text-zinc-300 dark:aria-selected:bg-zinc-800/90 dark:aria-selected:text-white"
+                  >
+                    <Users className="h-4 w-4 text-zinc-400" />
+                    <span>People &amp; Collaborators</span>
                   </Command.Item>
 
                   <Command.Item

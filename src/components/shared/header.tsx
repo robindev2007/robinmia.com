@@ -45,6 +45,7 @@ const NAV_ITEMS = [
   { label: "Experience", href: "/#experience" },
   { label: "Skills", href: "/#skills" },
   { label: "Projects", href: "/#projects" },
+  { label: "People", href: "/network" },
   { label: "Contact", href: "/#contact" },
 ];
 
