@@ -32,22 +32,10 @@ interface SkillCategory {
 
 const WORK_EXPERIENCES: WorkExperience[] = [
   {
-    company: "Shakil Education Group - SEG",
-    role: "Software Engineer, Backend Focused",
-    period: "Dec 2025 - Present",
-    logo: "/companies/seg.png",
-  },
-  {
     company: "SM Technology - Betopia Group",
     role: "Software Engineer, Team Lead",
-    period: "Apr 2024 - Dec 2025",
+    period: "Apr 2024 - Jun 2025 • 1 yr 2 mos",
     logo: "/companies/smt.png",
-  },
-  {
-    company: "IRD Foundation - IRDF",
-    role: "Full Stack Software Engineer",
-    period: "Jan 2024 - Apr 2024",
-    logo: "/companies/irdf.png",
   },
 ];
 
@@ -55,9 +43,9 @@ const PROJECTS: Project[] = [
   {
     title: "Resumix",
     description:
-      "Client-side Next.js resume builder with live multi-template preview, AI copilot assistance, and pixel-perfect A4 PDF export.",
+      "Client-side Next.js resume builder with live multi-template preview, dynamic content styling, and pixel-perfect A4 PDF export.",
     image: "/projects/resumix.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "AI Copilot", "jsPDF"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "PDF Generation", "jsPDF"],
     githubUrl: "https://github.com/robindev2007/resumix",
   },
   {
@@ -116,8 +104,8 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Tools & Libraries",
     skills: [
-      { name: "TanStack Router", icon: "/icons/tanstack.svg" },
-      { name: "TanStack Query", icon: "/icons/tanstack.svg" },
+      { name: "TanStack Router", icon: "/icons/tanstack.svg", invertInDark: true },
+      { name: "TanStack Query", icon: "/icons/tanstack.svg", invertInDark: true },
       { name: "Zod", icon: "/icons/zod.svg" },
       { name: "Vite", icon: "/icons/vite.svg" },
       { name: "Docker", icon: "/icons/docker.svg" },
@@ -144,7 +132,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "MySQL", icon: "/icons/mysql.svg" },
       { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
       { name: "Supabase", icon: "/icons/supabase.svg" },
-      { name: "Neon", icon: "/icons/neon.svg" },
+      { name: "Neon", icon: "/icons/neon.svg", invertInDark: true },
       { name: "Prisma ORM", icon: "/icons/prisma.svg", invertInDark: true },
       { name: "Drizzle ORM", icon: "/icons/drizzle.svg", invertInDark: true },
       { name: "Sequelize", icon: "/icons/sequelize.svg" },
@@ -157,18 +145,18 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "Vercel", icon: "/icons/vercel.svg", invertInDark: true },
       { name: "Render", icon: "/icons/render.svg", invertInDark: true },
       { name: "Netlify", icon: "/icons/netlify.svg" },
-      { name: "Hostinger", icon: "/icons/hostinger.svg" },
+      { name: "Hostinger", icon: "/icons/hostinger.svg", invertInDark: true },
       { name: "Digital Ocean", icon: "/icons/digitalocean.svg" },
     ],
   },
   {
     title: "Coder Related",
     skills: [
-      { name: "Antigravity", icon: "/icons/antigravity.svg" },
+      { name: "Antigravity", icon: "/icons/antigravity.svg", invertInDark: true },
       { name: "Copilot", icon: "/icons/copilot.svg", invertInDark: true },
       { name: "Git", icon: "/icons/git.svg" },
-      { name: "Deep Seek", icon: "/icons/deepseek.svg" },
-      { name: "Claude", icon: "/icons/claude.svg" },
+      { name: "Deep Seek", icon: "/icons/deepseek.svg", invertInDark: true },
+      { name: "Claude", icon: "/icons/claude.svg", invertInDark: true },
     ],
   },
   {
@@ -301,7 +289,7 @@ export function HeroSection() {
               {/* Resume & Get in Touch buttons */}
               <div className="flex w-full items-center gap-3 sm:w-auto">
                 <a
-                  href="https://drive.google.com/file/d/1EWkgK6_jYxNCpK0hV3oBWIqGzW5UMe31/view?usp=drive_link"
+                  href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apple-btn flex-1 rounded-xl bg-white px-4 py-2 text-center text-[13px] font-medium tracking-wide text-zinc-800 shadow-2xs transition-all hover:bg-zinc-50 hover:text-zinc-950 active:scale-95 sm:flex-initial dark:bg-[#151516] dark:text-zinc-200 dark:hover:bg-zinc-900 dark:hover:text-white"

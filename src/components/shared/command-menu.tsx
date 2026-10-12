@@ -253,10 +253,7 @@ export function CommandMenu() {
                   <Command.Item
                     onSelect={() =>
                       runCommand(() => {
-                        window.open(
-                          "https://drive.google.com/file/d/1EWkgK6_jYxNCpK0hV3oBWIqGzW5UMe31/view?usp=drive_link",
-                          "_blank"
-                        );
+                        window.open("/resume.pdf", "_blank");
                       })
                     }
                     className="flex cursor-pointer select-none items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[13px] text-zinc-700 outline-hidden transition-colors aria-selected:bg-zinc-100 aria-selected:text-zinc-950 dark:text-zinc-300 dark:aria-selected:bg-zinc-800/90 dark:aria-selected:text-white"

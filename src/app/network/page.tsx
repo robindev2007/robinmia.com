@@ -14,9 +14,10 @@ export default function Page() {
     <div className="relative min-h-screen w-full bg-background font-sans overflow-x-clip">
       <FlickeringGridHeader />
       <Header />
-      <main className="relative z-10 flex min-h-screen flex-col items-center justify-start pt-20 sm:pt-24 px-4 sm:px-8">
+      <main className="relative z-10 flex min-h-screen flex-col items-center justify-start pt-16 sm:pt-20 px-4 sm:px-8">
         <NetworkPage />
       </main>
     </div>
   );
 }
+

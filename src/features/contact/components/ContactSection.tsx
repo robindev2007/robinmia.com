@@ -152,7 +152,7 @@ export function ContactSection() {
               </a>
 
               <a
-                href="https://drive.google.com/file/d/1EWkgK6_jYxNCpK0hV3oBWIqGzW5UMe31/view?usp=drive_link"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="apple-btn flex items-center gap-1.5 rounded-lg bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:text-white"

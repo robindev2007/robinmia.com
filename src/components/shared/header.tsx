@@ -78,16 +78,23 @@ export function Header() {
   // Liquid glass map updater & scroll detection
   useEffect(() => {
     let mapTimer: NodeJS.Timeout;
+    const cachedCanvas = document.createElement("canvas");
+    let lastW = 0;
+    let lastH = 0;
+
     const generateMap = () => {
       if (!navRef.current || !glassMapRef.current) return;
       const rect = navRef.current.getBoundingClientRect();
-      const w = Math.max(rect.width, 100);
-      const h = Math.max(rect.height, 40);
+      const w = Math.round(Math.max(rect.width, 100));
+      const h = Math.round(Math.max(rect.height, 40));
 
-      const canvas = document.createElement("canvas");
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext("2d");
+      if (lastW === w && lastH === h) return;
+      lastW = w;
+      lastH = h;
+
+      cachedCanvas.width = w;
+      cachedCanvas.height = h;
+      const ctx = cachedCanvas.getContext("2d");
       if (!ctx) return;
 
       const grad = ctx.createRadialGradient(
@@ -105,7 +112,7 @@ export function Header() {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      glassMapRef.current.setAttribute("href", canvas.toDataURL());
+      glassMapRef.current.setAttribute("href", cachedCanvas.toDataURL());
     };
 
     const scheduleGlassMap = () => {
@@ -151,16 +158,15 @@ export function Header() {
     return () => {
       clearTimeout(mapTimer);
       if (resizeObserver) resizeObserver.disconnect();
-      window.removeEventListener("scroll", scheduleGlassMap);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
-  // Keyboard escape & resize handlers
+  // Keyboard escape & resize handlers (closing menu on desktop breakpoint >= 1024px)
   useEffect(() => {
-    const mql = window.matchMedia("(max-width: 991px)");
-    const closeOnDesktop = () => {
-      if (!mql.matches) close();
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = (e: MediaQueryListEvent) => {
+      if (e.matches) close();
     };
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") close();
@@ -221,11 +227,11 @@ export function Header() {
       </Link>
 
       <Link
-        href="https://drive.google.com/file/d/1EWkgK6_jYxNCpK0hV3oBWIqGzW5UMe31/view?usp=drive_link"
+        href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Resume"
-        className="apple-btn hidden sm:flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+        className="apple-btn flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
       >
         <FileText className="h-3.5 w-3.5" />
         <span>Resume</span>
@@ -255,41 +261,62 @@ export function Header() {
         </span>
       </Link>
 
-      {/* Desktop Navigation Links */}
+      {/* Desktop Navigation Links (>= 1024px) */}
       <nav
         aria-label="Main Navigation"
-        className="hidden items-center gap-5 md:flex xl:gap-6"
+        className="hidden items-center gap-5 lg:flex xl:gap-6"
       >
         {navLinks}
       </nav>
 
-      {/* Desktop Right Social/Contact Options */}
-      <div className="hidden items-center md:flex">{socialLinks}</div>
+      {/* Desktop Right Social/Contact Options (>= 1024px) */}
+      <div className="hidden items-center lg:flex">{socialLinks}</div>
 
-      {/* Mobile Menu Toggle Button */}
-      <button
-        type="button"
-        aria-label="Menu"
-        aria-expanded={open}
-        onClick={() => setOpen((prev) => !prev)}
-        className="flex h-9 w-9 cursor-pointer flex-col items-center justify-center gap-1.25 border-0 bg-transparent p-0 focus:outline-hidden md:hidden"
-      >
-        <div
-          className={`h-0.5 w-5 rounded-full bg-zinc-800 dark:bg-white transition-all duration-300 ${
-            open ? "translate-y-2 rotate-45" : ""
-          }`}
-        />
-        <div
-          className={`h-0.5 w-5 rounded-full bg-zinc-800 dark:bg-white transition-all duration-300 ${
-            open ? "opacity-0" : "opacity-100"
-          }`}
-        />
-        <div
-          className={`h-0.5 w-5 rounded-full bg-zinc-800 dark:bg-white transition-all duration-300 ${
-            open ? "-translate-y-2 -rotate-45" : ""
-          }`}
-        />
-      </button>
+      {/* Mobile & Tablet Controls (< 1024px) */}
+      <div className="flex items-center gap-2 lg:hidden">
+        {/* Quick Resume Link on Tablet / Larger mobile */}
+        <Link
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Resume"
+          className="apple-btn hidden sm:flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+        >
+          <FileText className="h-3.5 w-3.5" />
+          <span>Resume</span>
+          <ArrowUpRight className="h-3 w-3 opacity-60" />
+        </Link>
+
+        {/* Quick Theme Toggle directly accessible */}
+        <ThemeToggle />
+
+        {/* Mobile Menu Toggle Button */}
+        <button
+          type="button"
+          aria-label="Menu"
+          aria-expanded={open}
+          onClick={() => setOpen((prev) => !prev)}
+          className="apple-btn flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/60 text-zinc-800 transition-all duration-200 hover:scale-105 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200"
+        >
+          <div className="relative flex h-3.5 w-4 flex-col items-center justify-center">
+            <span
+              className={`absolute h-0.5 w-4 rounded-full bg-current transition-all duration-300 ${
+                open ? "rotate-45" : "-translate-y-1"
+              }`}
+            />
+            <span
+              className={`absolute h-0.5 w-4 rounded-full bg-current transition-all duration-300 ${
+                open ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute h-0.5 w-4 rounded-full bg-current transition-all duration-300 ${
+                open ? "-rotate-45" : "translate-y-1"
+              }`}
+            />
+          </div>
+        </button>
+      </div>
     </div>
   );
 
@@ -298,7 +325,7 @@ export function Header() {
       {/* Mobile Backdrop */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] md:hidden"
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] lg:hidden"
           onClick={close}
           aria-hidden="true"
         />
@@ -401,9 +428,9 @@ export function Header() {
             {renderNavContent()}
           </div>
 
-          {/* Mobile Dropdown Menu */}
+          {/* Mobile & Tablet Dropdown Menu (< 1024px) */}
           {open && (
-            <div className="animate-in fade-in-0 zoom-in-95 absolute top-full right-0 left-0 z-50 mt-2 duration-200 md:hidden">
+            <div className="animate-in fade-in-0 zoom-in-95 absolute top-full right-0 left-0 z-50 mt-2 duration-200 lg:hidden">
               <nav
                 aria-label="Mobile Navigation"
                 className="flex flex-col gap-3 rounded-2xl border-0 bg-white/80 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.06)] dark:bg-white/[0.06] dark:shadow-[0_16px_48px_rgba(0,0,0,0.75),0_8px_24px_rgba(0,0,0,0.4)]"
@@ -419,7 +446,49 @@ export function Header() {
                 </div>
 
                 <div className="mt-1 flex items-center justify-center pt-2">
-                  {socialLinks}
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href="https://github.com/robindev2007"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                      className="apple-btn flex h-8 w-8 items-center justify-center rounded-full bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:bg-zinc-100 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white"
+                    >
+                      <GithubIcon className="h-4 w-4" />
+                    </Link>
+
+                    <Link
+                      href="https://www.linkedin.com/in/robin2007/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      className="apple-btn flex h-8 w-8 items-center justify-center rounded-full bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:bg-blue-500/15 hover:text-blue-500 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:bg-blue-500/15 dark:hover:text-blue-400"
+                    >
+                      <LinkedinIcon className="h-4 w-4" />
+                    </Link>
+
+                    <Link
+                      href="mailto:robindev2007@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Email Robin"
+                      className="apple-btn flex h-8 w-8 items-center justify-center rounded-full bg-white/60 text-zinc-600 transition-all duration-200 hover:scale-105 hover:bg-emerald-500/15 hover:text-emerald-500 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:bg-emerald-500/15 dark:hover:text-emerald-400"
+                    >
+                      <Mail className="h-4 w-4" />
+                    </Link>
+
+                    <Link
+                      href="/resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Resume"
+                      className="apple-btn flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+                    >
+                      <FileText className="h-3.5 w-3.5" />
+                      <span>Resume</span>
+                      <ArrowUpRight className="h-3 w-3 opacity-60" />
+                    </Link>
+                  </div>
                 </div>
               </nav>
             </div>

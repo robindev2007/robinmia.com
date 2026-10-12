@@ -4,7 +4,7 @@ export interface DeveloperPeer {
   role: string;
   company?: string;
   avatar: string;
-  category: "Full-Stack" | "Frontend" | "Backend / DevOps" | "AI & Product" | "Open Source";
+  category: "Full-Stack" | "Frontend" | "Backend / DevOps" | "Mobile App" | "Product & Engineering" | "Open Source";
   relationship: string;
   bio: string;
   skills: string[];
@@ -15,3 +15,4 @@ export interface DeveloperPeer {
     website?: string;
   };
 }
+

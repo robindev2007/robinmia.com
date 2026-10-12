@@ -7,11 +7,11 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import {
   ArrowLeft,
   Search,
-  ExternalLink,
   Globe,
   Sparkles,
   Users,
   MessageSquarePlus,
+  X,
 } from "lucide-react";
 import { DeveloperPeer } from "../types";
 
@@ -66,98 +66,142 @@ function TwitterIcon({ className }: { className?: string }) {
   );
 }
 
+function PeerAvatar({ name, avatar }: { name: string; avatar: string }) {
+  const [hasError, setHasError] = useState(false);
+
+  const initials = useMemo(() => {
+    return name
+      .split(" ")
+      .map((part) => part[0])
+      .filter(Boolean)
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+  }, [name]);
+
+  if (hasError || !avatar) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-zinc-200 to-zinc-300 font-mono text-[12px] font-semibold text-zinc-700 select-none dark:from-zinc-800 dark:to-zinc-700 dark:text-zinc-200">
+        {initials}
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={avatar}
+      alt={name}
+      fill
+      sizes="44px"
+      className="object-cover transition-transform duration-300 group-hover:scale-105"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
 const PEERS_DATA: DeveloperPeer[] = [
   {
     id: "1",
-    name: "Alex Rivera",
-    role: "Senior Full-Stack Engineer",
-    company: "Softvence Delta",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-    category: "Full-Stack",
-    relationship: "Colleague & Co-Builder",
-    bio: "Passionate about building resilient distributed web architectures and micro-frontends with Next.js and Nest.js.",
-    skills: ["Next.js", "TypeScript", "Nest.js", "PostgreSQL", "Tailwind CSS"],
+    name: "Jubayer Shikder",
+    role: "Backend Engineer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/97081979?v=4",
+    category: "Backend / DevOps",
+    relationship: "SM Technology Teammate (15 Repos)",
+    bio: "Specializing in core backend infrastructure, scalable server APIs, and database engineering that power complex client web systems.",
+    skills: ["Node.js", "Express", "Nest.js", "MongoDB", "PostgreSQL", "Docker"],
     links: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
-      twitter: "https://x.com",
+      github: "https://github.com/jubayers-r",
+      twitter: "https://x.com/jubayers_r",
     },
   },
   {
     id: "2",
-    name: "Samantha Chen",
-    role: "Frontend Architect & Design Systems",
-    company: "Freelance",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+    name: "Md Tahmid Alam",
+    role: "Frontend Engineer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/103018071?v=4",
     category: "Frontend",
-    relationship: "Design Systems Collaborator",
-    bio: "Obsessed with micro-interactions, fluid animation physics, and building accessible WCAG AAA component libraries.",
-    skills: ["React", "Framer Motion", "Tailwind CSS", "Radix UI", "Web Performance"],
+    relationship: "SM Technology Teammate (12 Repos)",
+    bio: "Crafting modern, accessible, and high-performance user interfaces and responsive client dashboards with React and Next.js.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "UI/UX"],
     links: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
-      website: "https://example.com",
+      github: "https://github.com/tahmid122",
+      website: "https://tahmidalam.vercel.app/",
     },
   },
   {
     id: "3",
-    name: "Devon Vance",
-    role: "Backend & Cloud Engineer",
-    company: "Softvence Agency",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-    category: "Backend / DevOps",
-    relationship: "Softvence Teammate",
-    bio: "Specializing in high-throughput real-time APIs, WebRTC streaming pipelines, and Dockerized edge microservices.",
-    skills: ["Node.js", "Express", "Docker", "Redis", "Supabase", "WebSockets"],
+    name: "Apu Sutra Dhar",
+    role: "Full-Stack Developer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/101419595?v=4",
+    category: "Full-Stack",
+    relationship: "SM Technology Collaborator (11 Repos)",
+    bio: "Full-stack developer architecting end-to-end web applications, server APIs, and integrated database solutions.",
+    skills: ["Node.js", "React", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
     links: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
+      github: "https://github.com/apucsd",
+      website: "https://apusutradhar.online",
     },
   },
   {
     id: "4",
-    name: "Marcus Aurelius Tan",
-    role: "AI Product Builder & Full-Stack",
-    company: "Open Source Lab",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-    category: "AI & Product",
-    relationship: "Hackathon Partner",
-    bio: "Building multimodal LLM tools, agentic workflows, and intuitive developer tooling in the Next.js ecosystem.",
-    skills: ["Python", "LangChain", "Next.js", "FastAPI", "Vector DBs"],
+    name: "Irfan Ekon",
+    role: "Mobile Application Developer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/96953316?v=4",
+    category: "Mobile App",
+    relationship: "SM Technology App Co-Builder (3 Repos)",
+    bio: "Mobile app developer at SM Technology specializing in cross-platform mobile experiences and seamless API integrations.",
+    skills: ["React Native", "Flutter", "JavaScript", "Mobile UI", "REST APIs"],
     links: {
-      github: "https://github.com",
-      twitter: "https://x.com",
-      website: "https://example.com",
+      github: "https://github.com/irfanekon04",
+      website: "https://irfanekon.vercel.app",
     },
   },
   {
     id: "5",
-    name: "Elena Rostova",
-    role: "Open Source Maintainer & Rust Dev",
-    company: "Independent",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
-    category: "Open Source",
-    relationship: "OSS Contributor Peer",
-    bio: "Core contributor to developer tools, CLI utilities, and fast bundling algorithms in Rust and TypeScript.",
-    skills: ["Rust", "TypeScript", "WASM", "Vite", "Node.js"],
+    name: "MD. Shahriar Nur",
+    role: "Mobile & Frontend Developer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/95541859?v=4",
+    category: "Mobile App",
+    relationship: "SM Technology Collaborator (3 Repos)",
+    bio: "Engineering performant cross-platform mobile apps and modern front-end interfaces with clean architecture.",
+    skills: ["Flutter", "React Native", "React", "JavaScript", "Mobile Development"],
     links: {
-      github: "https://github.com",
-      twitter: "https://x.com",
+      github: "https://github.com/shahriarnur03",
+      website: "https://www.shahriarnur.com/",
     },
   },
   {
     id: "6",
-    name: "Zubair Ahmed",
-    role: "Full-Stack Web3 & Cloud Dev",
-    company: "Tech Venture Studio",
-    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+    name: "Abu Rahat Shaum",
+    role: "Full-Stack Developer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/146001390?v=4",
     category: "Full-Stack",
-    relationship: "Project Collaborator",
-    bio: "Focused on scalable distributed applications, serverless architectures, and next-gen web platforms.",
-    skills: ["Next.js", "MongoDB", "Tailwind CSS", "Solidity", "AWS"],
+    relationship: "SM Technology Collaborator (2 Repos)",
+    bio: "Building clean, full-stack client web solutions with Next.js, modern backend services, and scalable database schemas.",
+    skills: ["Next.js", "Node.js", "Express", "TypeScript", "Tailwind CSS"],
     links: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
+      github: "https://github.com/AbuRahat889",
+      website: "https://aburahat.vercel.app",
+    },
+  },
+  {
+    id: "7",
+    name: "Parvej Mahmud",
+    role: "Mobile App Developer (Flutter)",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/90233130?v=4",
+    category: "Mobile App",
+    relationship: "SM Technology Mobile Collaborator",
+    bio: "Specializing in Flutter mobile development, state management, and reliable backend service integration.",
+    skills: ["Flutter", "Dart", "Firebase", "Mobile Architecture", "REST APIs"],
+    links: {
+      github: "https://github.com/ParvejMahmud01",
     },
   },
 ];
@@ -167,8 +211,7 @@ const CATEGORIES = [
   "Full-Stack",
   "Frontend",
   "Backend / DevOps",
-  "AI & Product",
-  "Open Source",
+  "Mobile App",
 ] as const;
 
 export function NetworkPage() {
@@ -176,25 +219,30 @@ export function NetworkPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredPeers = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
     return PEERS_DATA.filter((peer) => {
       const matchesCategory =
         selectedCategory === "All" || peer.category === selectedCategory;
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        peer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        peer.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        peer.relationship.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        peer.skills.some((s) =>
-          s.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-      return matchesCategory && matchesSearch;
+
+      if (!matchesCategory) return false;
+      if (!q) return true;
+
+      return (
+        peer.name.toLowerCase().includes(q) ||
+        peer.role.toLowerCase().includes(q) ||
+        (peer.company && peer.company.toLowerCase().includes(q)) ||
+        peer.relationship.toLowerCase().includes(q) ||
+        peer.category.toLowerCase().includes(q) ||
+        peer.bio.toLowerCase().includes(q) ||
+        peer.skills.some((s) => s.toLowerCase().includes(q))
+      );
     });
   }, [selectedCategory, searchQuery]);
 
   return (
     <div className="w-full max-w-3xl pb-24">
       {/* Top Breadcrumb Navigation */}
-      <BlurFade delay={0.05} yOffset={6} blur="4px">
+      <BlurFade delay={0.04} yOffset={6} blur="4px">
         <div className="mb-6 flex items-center justify-between">
           <Link
             href="/"
@@ -206,17 +254,22 @@ export function NetworkPage() {
 
           <div className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-400 dark:text-zinc-500">
             <Users className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
-            <span>{PEERS_DATA.length} Collaborators</span>
+            <span>
+              {searchQuery || selectedCategory !== "All"
+                ? `${filteredPeers.length} of ${PEERS_DATA.length}`
+                : PEERS_DATA.length}{" "}
+              Collaborators
+            </span>
           </div>
         </div>
       </BlurFade>
 
       {/* Hero Header */}
-      <BlurFade delay={0.1} yOffset={8} blur="6px">
+      <BlurFade delay={0.08} yOffset={8} blur="6px">
         <div className="flex flex-col gap-3">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-zinc-200/80 bg-zinc-100/80 px-2.5 py-1 text-[11px] font-medium text-zinc-700 backdrop-blur-xs dark:border-white/10 dark:bg-white/[0.05] dark:text-zinc-300">
             <Sparkles className="h-3 w-3 text-amber-500" />
-            <span>Developers &amp; Peers Network</span>
+            <span>SM Technology &amp; Peer Network</span>
           </div>
 
           <h1 className="font-sans text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
@@ -224,25 +277,25 @@ export function NetworkPage() {
           </h1>
 
           <p className="font-sans text-[14.5px] leading-relaxed text-zinc-600 sm:text-[15.5px] dark:text-zinc-300/90">
-            A curated space celebrating talented engineers, product builders,
-            designers, and creators I’ve had the privilege of working with,
-            building alongside, or learning from in the tech ecosystem.
+            Talented engineers, teammates, and builders I&apos;ve collaborated with across
+            45+ production repositories, client applications, and backend systems at SM Technology.
           </p>
         </div>
       </BlurFade>
 
       {/* Filter Tabs & Search Bar */}
-      <BlurFade delay={0.15} yOffset={6} blur="4px">
+      <BlurFade delay={0.12} yOffset={6} blur="4px">
         <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5">
+          {/* Category Filter Pills (Scrollable on small mobile screens) */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0 scrollbar-none">
             {CATEGORIES.map((cat) => {
               const isActive = selectedCategory === cat;
               return (
                 <button
                   key={cat}
+                  type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`cursor-pointer rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all active:scale-95 ${
+                  className={`shrink-0 cursor-pointer rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all active:scale-95 ${
                     isActive
                       ? "apple-btn-primary bg-zinc-900 text-white dark:bg-white dark:text-zinc-950"
                       : "apple-skill bg-white/60 text-zinc-600 hover:bg-white hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
@@ -254,16 +307,26 @@ export function NetworkPage() {
             })}
           </div>
 
-          {/* Search Box */}
-          <div className="relative sm:w-64">
+          {/* Search Box with Clear Button */}
+          <div className="relative w-full sm:w-64">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search peers or tech..."
-              className="apple-skill h-8.5 w-full rounded-lg bg-white/60 pl-8 pr-3 text-[12px] text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden dark:bg-zinc-900/40 dark:text-zinc-100 dark:placeholder:text-zinc-500"
+              placeholder="Search peers, skills, company..."
+              className="h-9 w-full rounded-xl border border-zinc-200/80 bg-white/70 pl-8.5 pr-8 text-[12.5px] text-zinc-900 placeholder:text-zinc-400 transition-all focus:border-zinc-400 focus:bg-white focus:outline-hidden dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-white/20 dark:focus:bg-zinc-900"
             />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 cursor-pointer p-0.5 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
+                aria-label="Clear search"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            )}
           </div>
         </div>
       </BlurFade>
@@ -273,7 +336,7 @@ export function NetworkPage() {
         {filteredPeers.map((peer, idx) => (
           <BlurFade
             key={peer.id}
-            delay={0.2 + idx * 0.04}
+            delay={0.16 + Math.min(idx * 0.03, 0.2)}
             yOffset={6}
             blur="4px"
           >
@@ -282,13 +345,7 @@ export function NetworkPage() {
                 {/* Header: Avatar, Name & Relations */}
                 <div className="flex items-start gap-3">
                   <div className="apple-btn relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
-                    <Image
-                      src={peer.avatar}
-                      alt={peer.name}
-                      fill
-                      sizes="44px"
-                      className="object-cover"
-                    />
+                    <PeerAvatar name={peer.name} avatar={peer.avatar} />
                   </div>
 
                   <div className="flex flex-col min-w-0">
@@ -318,12 +375,15 @@ export function NetworkPage() {
               <div className="mt-4 pt-3 border-t border-zinc-200/50 dark:border-zinc-800/50">
                 <div className="flex flex-wrap gap-1 mb-3">
                   {peer.skills.map((skill) => (
-                    <span
+                    <button
                       key={skill}
-                      className="apple-skill rounded-md bg-zinc-100/70 px-1.5 py-0.5 font-mono text-[9.5px] text-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-300"
+                      type="button"
+                      onClick={() => setSearchQuery(skill)}
+                      title={`Filter by ${skill}`}
+                      className="apple-skill cursor-pointer rounded-md bg-zinc-100/70 px-1.5 py-0.5 font-mono text-[9.5px] text-zinc-600 transition-all hover:bg-zinc-200/80 hover:text-zinc-950 active:scale-95 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-700/60 dark:hover:text-white"
                     >
                       {skill}
-                    </span>
+                    </button>
                   ))}
                 </div>
 
@@ -397,12 +457,22 @@ export function NetworkPage() {
           <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
             Try adjusting your search query or selected category filter.
           </p>
+          <button
+            type="button"
+            onClick={() => {
+              setSearchQuery("");
+              setSelectedCategory("All");
+            }}
+            className="apple-btn mt-4 inline-flex items-center gap-1.5 rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-medium text-white shadow-2xs hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+          >
+            Clear Filters
+          </button>
         </div>
       )}
 
       {/* Want to connect / build together card */}
-      <BlurFade delay={0.4} yOffset={8} blur="6px">
-        <div className="apple-card mt-12 flex flex-col items-start justify-between gap-4 rounded-2xl bg-white/60 p-6 shadow-sm sm:flex-row sm:items-center sm:p-7 dark:bg-zinc-900/40">
+      <BlurFade delay={0.24} yOffset={8} blur="6px">
+        <div className="apple-card mt-12 flex flex-col items-start justify-between gap-4 rounded-2xl bg-white/60 p-6 shadow-xs sm:flex-row sm:items-center sm:p-7 dark:bg-zinc-900/40">
           <div className="flex flex-col gap-1">
             <h3 className="font-sans text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
               Have we built together or want to collaborate?

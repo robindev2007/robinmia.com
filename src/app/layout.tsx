@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   title: "Robin Mia — Full-Stack Engineer & Product Builder",
   description:
     "Full-Stack Engineer building high-performance web applications with React, Next.js, TypeScript, and modern backend systems.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

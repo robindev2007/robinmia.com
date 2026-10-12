@@ -8,7 +8,6 @@ import {
   type UseInViewOptions,
   type Variants,
 } from "motion/react";
-import { cn } from "@/lib/utils";
 
 export interface BlurFadeProps {
   children: React.ReactNode;
@@ -60,7 +59,7 @@ export function BlurFade({
           duration,
           ease: [0.21, 0.47, 0.32, 0.98],
         }}
-        className={cn("will-change-transform", className)}
+        className={className}
       >
         {children}
       </motion.div>
