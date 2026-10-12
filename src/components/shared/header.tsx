@@ -75,49 +75,56 @@ export function Header() {
     };
   }, [open]);
 
-  // Liquid glass map updater & scroll detection
+  // Liquid glass map updater & scroll detection (Exact open-design.ai implementation)
   useEffect(() => {
     let mapTimer: NodeJS.Timeout;
-    const cachedCanvas = document.createElement("canvas");
     let lastW = 0;
     let lastH = 0;
 
-    const generateMap = () => {
+    // Liquid Glass displacement map — ported 1:1 from Inspira UI / open-design.ai
+    // (radius 16, border 0.07, lightness 50, alpha 0.93, blur 11, blend "difference").
+    const buildGlassMap = (w: number, h: number) => {
+      const radius = Math.round(Math.min(w, h) / 2);
+      const borderRatio = 0.07;
+      const lightness = 50;
+      const alpha = 0.93;
+      const blur = 11;
+      const blend = "difference";
+      const inset = Math.min(w, h) * (borderRatio * 0.5);
+
+      const svg =
+        '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg">' +
+          '<defs>' +
+            '<linearGradient id="red" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="red"/></linearGradient>' +
+            '<linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="blue"/></linearGradient>' +
+          '</defs>' +
+          '<rect x="0" y="0" width="' + w + '" height="' + h + '" fill="black"/>' +
+          '<rect x="0" y="0" width="' + w + '" height="' + h + '" rx="' + radius + '" fill="url(#red)"/>' +
+          '<rect x="0" y="0" width="' + w + '" height="' + h + '" rx="' + radius + '" fill="url(#blue)" style="mix-blend-mode:' + blend + '"/>' +
+          '<rect x="' + inset + '" y="' + inset + '" width="' + (w - inset * 2) + '" height="' + (h - inset * 2) + '" rx="' + radius + '" fill="hsl(0 0% ' + lightness + '% / ' + alpha + ')" style="filter:blur(' + blur + 'px)"/>' +
+        '</svg>';
+
+      return "data:image/svg+xml," + encodeURIComponent(svg);
+    };
+
+    const syncGlassMap = () => {
       if (!navRef.current || !glassMapRef.current) return;
       const rect = navRef.current.getBoundingClientRect();
-      const w = Math.round(Math.max(rect.width, 100));
-      const h = Math.round(Math.max(rect.height, 40));
+      const w = Math.max(1, Math.round(rect.width));
+      const h = Math.max(1, Math.round(rect.height));
 
       if (lastW === w && lastH === h) return;
       lastW = w;
       lastH = h;
 
-      cachedCanvas.width = w;
-      cachedCanvas.height = h;
-      const ctx = cachedCanvas.getContext("2d");
-      if (!ctx) return;
-
-      const grad = ctx.createRadialGradient(
-        w / 2,
-        h / 2,
-        0,
-        w / 2,
-        h / 2,
-        Math.max(w, h) / 2
-      );
-      grad.addColorStop(0, "#808080");
-      grad.addColorStop(0.7, "#909090");
-      grad.addColorStop(1, "#a0a0a0");
-
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-
-      glassMapRef.current.setAttribute("href", cachedCanvas.toDataURL());
+      const uri = buildGlassMap(w, h);
+      glassMapRef.current.setAttribute("href", uri);
+      glassMapRef.current.setAttributeNS("http://www.w3.org/1999/xlink", "href", uri);
     };
 
     const scheduleGlassMap = () => {
       clearTimeout(mapTimer);
-      mapTimer = setTimeout(generateMap, 100);
+      mapTimer = setTimeout(syncGlassMap, 140);
     };
 
     let resizeObserver: ResizeObserver | null = null;
@@ -125,9 +132,11 @@ export function Header() {
       resizeObserver = new ResizeObserver(scheduleGlassMap);
       resizeObserver.observe(navRef.current);
     }
+    window.addEventListener("resize", scheduleGlassMap, { passive: true });
 
-    const condenseOn = 70;
-    const condenseOff = 25;
+    // Condense-on-scroll with hysteresis: condense past 64px, release below 24px (exact open-design.ai values)
+    const condenseOn = 64;
+    const condenseOff = 24;
     let isCondensed = false;
     let ticking = false;
 
@@ -153,11 +162,13 @@ export function Header() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    syncGlassMap();
     handleScroll();
 
     return () => {
       clearTimeout(mapTimer);
       if (resizeObserver) resizeObserver.disconnect();
+      window.removeEventListener("resize", scheduleGlassMap);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -406,18 +417,18 @@ export function Header() {
           {/* Crystal Liquid Glass Bar on Scroll */}
           <div
             ref={navRef}
-            className={`relative border-0 transition-all duration-400 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${
+            className={`relative transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${
               condensed
-                ? "rounded-full bg-zinc-900/[0.04] px-2 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.03)] dark:bg-white/[0.05] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25)]"
-                : "rounded-none bg-transparent shadow-none"
+                ? "rounded-full border border-black/[0.08] bg-white/40 px-2 py-1 shadow-[inset_0_0_2px_1px_rgba(255,255,255,0.55),inset_0_0_10px_4px_rgba(255,255,255,0.22),0_6px_24px_rgba(17,17,26,0.06),0_12px_40px_rgba(17,17,26,0.05)] dark:border-white/[0.12] dark:bg-black/40 dark:shadow-[inset_0_0_2px_1px_rgba(255,255,255,0.15),inset_0_0_10px_4px_rgba(255,255,255,0.05),0_6px_24px_rgba(0,0,0,0.5),0_12px_40px_rgba(0,0,0,0.35)]"
+                : "rounded-none border-transparent bg-transparent shadow-none"
             }`}
             style={
               condensed
                 ? {
                     WebkitBackdropFilter:
-                      "url(#nav-liquid-glass) blur(8px) saturate(1.4)",
+                      "url(#nav-liquid-glass) blur(7px) saturate(1.4)",
                     backdropFilter:
-                      "url(#nav-liquid-glass) blur(8px) saturate(1.4)",
+                      "url(#nav-liquid-glass) blur(7px) saturate(1.4)",
                   }
                 : {
                     WebkitBackdropFilter: "none",
