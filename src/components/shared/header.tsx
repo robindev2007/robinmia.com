@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Mail, FileText, ArrowUpRight } from "lucide-react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { ArrowUpRight, FileText, Mail } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -93,16 +93,54 @@ export function Header() {
       const inset = Math.min(w, h) * (borderRatio * 0.5);
 
       const svg =
-        '<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg">' +
-          '<defs>' +
-            '<linearGradient id="red" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="red"/></linearGradient>' +
-            '<linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="blue"/></linearGradient>' +
-          '</defs>' +
-          '<rect x="0" y="0" width="' + w + '" height="' + h + '" fill="black"/>' +
-          '<rect x="0" y="0" width="' + w + '" height="' + h + '" rx="' + radius + '" fill="url(#red)"/>' +
-          '<rect x="0" y="0" width="' + w + '" height="' + h + '" rx="' + radius + '" fill="url(#blue)" style="mix-blend-mode:' + blend + '"/>' +
-          '<rect x="' + inset + '" y="' + inset + '" width="' + (w - inset * 2) + '" height="' + (h - inset * 2) + '" rx="' + radius + '" fill="hsl(0 0% ' + lightness + '% / ' + alpha + ')" style="filter:blur(' + blur + 'px)"/>' +
-        '</svg>';
+        '<svg viewBox="0 0 ' +
+        w +
+        " " +
+        h +
+        '" xmlns="http://www.w3.org/2000/svg">' +
+        "<defs>" +
+        '<linearGradient id="red" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="red"/></linearGradient>' +
+        '<linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="blue"/></linearGradient>' +
+        "</defs>" +
+        '<rect x="0" y="0" width="' +
+        w +
+        '" height="' +
+        h +
+        '" fill="black"/>' +
+        '<rect x="0" y="0" width="' +
+        w +
+        '" height="' +
+        h +
+        '" rx="' +
+        radius +
+        '" fill="url(#red)"/>' +
+        '<rect x="0" y="0" width="' +
+        w +
+        '" height="' +
+        h +
+        '" rx="' +
+        radius +
+        '" fill="url(#blue)" style="mix-blend-mode:' +
+        blend +
+        '"/>' +
+        '<rect x="' +
+        inset +
+        '" y="' +
+        inset +
+        '" width="' +
+        (w - inset * 2) +
+        '" height="' +
+        (h - inset * 2) +
+        '" rx="' +
+        radius +
+        '" fill="hsl(0 0% ' +
+        lightness +
+        "% / " +
+        alpha +
+        ')" style="filter:blur(' +
+        blur +
+        'px)"/>' +
+        "</svg>";
 
       return "data:image/svg+xml," + encodeURIComponent(svg);
     };
@@ -119,7 +157,11 @@ export function Header() {
 
       const uri = buildGlassMap(w, h);
       glassMapRef.current.setAttribute("href", uri);
-      glassMapRef.current.setAttributeNS("http://www.w3.org/1999/xlink", "href", uri);
+      glassMapRef.current.setAttributeNS(
+        "http://www.w3.org/1999/xlink",
+        "href",
+        uri,
+      );
     };
 
     const scheduleGlassMap = () => {
@@ -291,7 +333,7 @@ export function Header() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Resume"
-          className="apple-btn hidden sm:flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+          className="apple-btn hidden items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 sm:flex dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
         >
           <FileText className="h-3.5 w-3.5" />
           <span>Resume</span>
@@ -344,7 +386,7 @@ export function Header() {
 
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-2.5 transition-all duration-300 md:px-8"
+        className="fixed top-0 right-0 left-0 z-50 w-full px-4 py-2.5 transition-all duration-300 md:px-8"
       >
         {/* SVG Liquid Glass Filter Definition with Chromatic Aberration Split */}
         <svg
@@ -419,7 +461,7 @@ export function Header() {
             ref={navRef}
             className={`relative transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${
               condensed
-                ? "rounded-full border border-black/[0.08] bg-white/40 px-2 py-1 shadow-[inset_0_0_2px_1px_rgba(255,255,255,0.55),inset_0_0_10px_4px_rgba(255,255,255,0.22),0_6px_24px_rgba(17,17,26,0.06),0_12px_40px_rgba(17,17,26,0.05)] dark:border-white/[0.12] dark:bg-black/40 dark:shadow-[inset_0_0_2px_1px_rgba(255,255,255,0.15),inset_0_0_10px_4px_rgba(255,255,255,0.05),0_6px_24px_rgba(0,0,0,0.5),0_12px_40px_rgba(0,0,0,0.35)]"
+                ? "rounded-full border border-black/[0.05] bg-white/40 px-2 py-1 shadow-[inset_0_0_2px_1px_rgba(255,255,255,0.35),0_4px_20px_rgba(17,17,26,0.04)] dark:border-white/[0.07] dark:bg-black/40 dark:shadow-[0_8px_24px_rgba(0,0,0,0.5),0_2px_8px_rgba(0,0,0,0.3)]"
                 : "rounded-none border-transparent bg-transparent shadow-none"
             }`}
             style={
@@ -444,7 +486,7 @@ export function Header() {
             <div className="animate-in fade-in-0 zoom-in-95 absolute top-full right-0 left-0 z-50 mt-2 duration-200 lg:hidden">
               <nav
                 aria-label="Mobile Navigation"
-                className="flex flex-col gap-3 rounded-2xl border-0 bg-white/80 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.06)] dark:bg-white/[0.06] dark:shadow-[0_16px_48px_rgba(0,0,0,0.75),0_8px_24px_rgba(0,0,0,0.4)]"
+                className="flex flex-col gap-3 rounded-2xl border border-black/[0.05] bg-white/80 p-5 shadow-[0_16px_48px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.04)] dark:border-white/[0.07] dark:bg-white/[0.06] dark:shadow-[0_16px_48px_rgba(0,0,0,0.6),0_8px_24px_rgba(0,0,0,0.3)]"
                 style={{
                   WebkitBackdropFilter:
                     "url(#nav-liquid-glass) blur(12px) saturate(1.5)",
@@ -452,9 +494,7 @@ export function Header() {
                     "url(#nav-liquid-glass) blur(12px) saturate(1.5)",
                 }}
               >
-                <div className="flex flex-col gap-1">
-                  {navLinks}
-                </div>
+                <div className="flex flex-col gap-1">{navLinks}</div>
 
                 <div className="mt-1 flex items-center justify-center pt-2">
                   <div className="flex items-center gap-2">
@@ -511,4 +551,3 @@ export function Header() {
 }
 
 export default Header;
-
