@@ -153,7 +153,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Full-Stack Developer",
     avatar: "https://avatars.githubusercontent.com/u/101419595?v=4",
     category: "Full-Stack",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Full-stack developer architecting end-to-end web applications, server APIs, and integrated database solutions.",
     skills: ["Node.js", "React", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
     links: {
@@ -167,7 +167,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Mobile Application Developer",
     avatar: "https://avatars.githubusercontent.com/u/96953316?v=4",
     category: "Mobile App",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Mobile app developer at SM Technology specializing in cross-platform mobile experiences and seamless API integrations.",
     skills: ["React Native", "Flutter", "JavaScript", "Mobile UI", "REST APIs"],
     links: {
@@ -181,7 +181,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Mobile & Frontend Developer",
     avatar: "https://avatars.githubusercontent.com/u/95541859?v=4",
     category: "Mobile App",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Engineering performant cross-platform mobile apps and modern front-end interfaces with clean architecture.",
     skills: ["Flutter", "React Native", "React", "JavaScript", "Mobile Development"],
     links: {
@@ -195,7 +195,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Mobile App Developer (Flutter)",
     avatar: "https://avatars.githubusercontent.com/u/90233130?v=4",
     category: "Mobile App",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Specializing in Flutter mobile development, state management, and reliable backend service integration.",
     skills: ["Flutter", "Dart", "Firebase", "Mobile Architecture", "REST APIs"],
     links: {
@@ -208,7 +208,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Backend Developer",
     avatar: "https://avatars.githubusercontent.com/u/138348590?v=4",
     category: "Backend / DevOps",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Backend developer specializing in scalable Node.js & Express architectures, PostgreSQL database design, and API performance optimization.",
     skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "TypeScript", "REST APIs"],
     links: {
@@ -223,7 +223,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Full-Stack Developer",
     avatar: "https://avatars.githubusercontent.com/u/153846355?v=4",
     category: "Full-Stack",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Full-stack developer specializing in the MERN stack and Next.js, building scalable, responsive web applications and secure API backends.",
     skills: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB"],
     links: {
@@ -238,7 +238,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Full-Stack Developer",
     avatar: "https://avatars.githubusercontent.com/u/121657120?v=4",
     category: "Full-Stack",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Full-stack developer crafting scalable web applications with MERN stack, TypeScript, and modern component systems.",
     skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Redux"],
     links: {
@@ -254,7 +254,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Full-Stack Developer",
     avatar: "https://avatars.githubusercontent.com/u/87421998?v=4",
     category: "Full-Stack",
-    relationship: "Collaborator",
+    relationship: "Teammate",
     bio: "Full-stack and Node.js-focused engineer building fast, clean, and accessible web solutions from ideas to interfaces and the cloud.",
     skills: ["TypeScript", "Next.js", "React", "Node.js", "Prisma", "Express"],
     links: {
@@ -269,7 +269,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "UI/UX & Product Designer",
     avatar: "/walid.jpg",
     category: "UI/UX Design",
-    relationship: "Designer",
+    relationship: "Teammate",
     bio: "UI/UX designer with a software engineering background, crafting clean, intuitive digital experiences, mobile platforms, and scalable design systems.",
     skills: ["UI/UX Design", "Figma", "Design Systems", "Mobile UI", "Web Design", "Prototyping"],
     links: {
@@ -282,7 +282,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "UI/UX Designer",
     avatar: "/salam.jpg",
     category: "UI/UX Design",
-    relationship: "Designer",
+    relationship: "Teammate",
     bio: "UI/UX designer with 2+ years of experience designing user-centric web and mobile interfaces, product workflows, and modern visual design.",
     skills: ["UI/UX Design", "Figma", "Product Design", "User Research", "Wireframing", "Web Design"],
     links: {
@@ -344,7 +344,7 @@ export function NetworkPage() {
               {searchQuery || selectedCategory !== "All"
                 ? `${filteredPeers.length} of ${PEERS_DATA.length}`
                 : PEERS_DATA.length}{" "}
-              Collaborators
+              Teammates
             </span>
           </div>
         </div>
@@ -359,12 +359,12 @@ export function NetworkPage() {
           </div>
 
           <h1 className="font-sans text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
-            People &amp; Collaborators
+            People &amp; Teammates
           </h1>
 
           <p className="font-sans text-[14.5px] leading-relaxed text-zinc-600 sm:text-[15.5px] dark:text-zinc-300/90">
-            Talented engineers, teammates, and builders I&apos;ve collaborated with across
-            45+ production repositories, client applications, and backend systems at SM Technology.
+            Talented engineers, designers, and teammates I&apos;ve worked with across
+            production repositories, client applications, and backend systems at SM Technology.
           </p>
         </div>
       </BlurFade>
@@ -550,7 +550,7 @@ export function NetworkPage() {
         <div className="mt-12 flex flex-col items-center justify-center rounded-2xl border border-dashed border-zinc-200 p-8 text-center dark:border-zinc-800">
           <Users className="h-8 w-8 text-zinc-400" />
           <h4 className="mt-2 font-sans text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-            No collaborators found
+            No teammates found
           </h4>
           <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
             Try adjusting your search query or selected category filter.
