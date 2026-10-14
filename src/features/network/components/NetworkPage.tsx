@@ -204,6 +204,22 @@ const PEERS_DATA: DeveloperPeer[] = [
       github: "https://github.com/ParvejMahmud01",
     },
   },
+  {
+    id: "8",
+    name: "Junayet Alam",
+    role: "Backend Developer",
+    company: "SM Technology",
+    avatar: "https://avatars.githubusercontent.com/u/138348590?v=4",
+    category: "Backend / DevOps",
+    relationship: "SM Technology Collaborator",
+    bio: "Backend developer specializing in scalable Node.js & Express architectures, PostgreSQL database design, and API performance optimization.",
+    skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "TypeScript", "REST APIs"],
+    links: {
+      github: "https://github.com/JunayetAlam",
+      linkedin: "https://www.linkedin.com/in/junayet-alam/",
+      website: "https://www.junayetalam.me",
+    },
+  },
 ];
 
 const CATEGORIES = [
