@@ -66,6 +66,25 @@ function TwitterIcon({ className }: { className?: string }) {
   );
 }
 
+function DribbbleIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" />
+      <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" />
+      <path d="M8.5 2.5c3.75 4.5 5.5 10.5 5.5 19" />
+    </svg>
+  );
+}
+
 function PeerAvatar({ name, avatar }: { name: string; avatar: string }) {
   const [hasError, setHasError] = useState(false);
 
@@ -244,6 +263,32 @@ const PEERS_DATA: DeveloperPeer[] = [
       website: "https://tanvircodes.com",
     },
   },
+  {
+    id: "11",
+    name: "Walid Khan",
+    role: "UI/UX & Product Designer",
+    avatar: "/walid.jpg",
+    category: "UI/UX Design",
+    relationship: "Designer",
+    bio: "UI/UX designer with a software engineering background, crafting clean, intuitive digital experiences, mobile platforms, and scalable design systems.",
+    skills: ["UI/UX Design", "Figma", "Design Systems", "Mobile UI", "Web Design", "Prototyping"],
+    links: {
+      dribbble: "http://dribbble.com/walid_K02013",
+    },
+  },
+  {
+    id: "12",
+    name: "Md. Abdus Salam",
+    role: "UI/UX Designer",
+    avatar: "/salam.jpg",
+    category: "UI/UX Design",
+    relationship: "Designer",
+    bio: "UI/UX designer with 2+ years of experience designing user-centric web and mobile interfaces, product workflows, and modern visual design.",
+    skills: ["UI/UX Design", "Figma", "Product Design", "User Research", "Wireframing", "Web Design"],
+    links: {
+      linkedin: "https://www.linkedin.com/in/salam2396/",
+    },
+  },
 ];
 
 const CATEGORIES = [
@@ -252,6 +297,7 @@ const CATEGORIES = [
   "Frontend",
   "Backend / DevOps",
   "Mobile App",
+  "UI/UX Design",
 ] as const;
 
 export function NetworkPage() {
@@ -478,6 +524,18 @@ export function NetworkPage() {
                         aria-label={`${peer.name} Website`}
                       >
                         <Globe className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+
+                    {peer.links.dribbble && (
+                      <a
+                        href={peer.links.dribbble}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="apple-btn flex h-7 w-7 items-center justify-center rounded-lg bg-white/60 text-zinc-500 hover:text-pink-500 dark:bg-zinc-800/60 dark:text-zinc-400 dark:hover:text-pink-400"
+                        aria-label={`${peer.name} Dribbble`}
+                      >
+                        <DribbbleIcon className="h-3.5 w-3.5" />
                       </a>
                     )}
                   </div>
