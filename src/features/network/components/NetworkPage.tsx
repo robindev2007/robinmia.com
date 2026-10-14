@@ -104,10 +104,9 @@ const PEERS_DATA: DeveloperPeer[] = [
     id: "1",
     name: "Jubayer Shikder",
     role: "Backend Engineer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/97081979?v=4",
     category: "Backend / DevOps",
-    relationship: "SM Technology Teammate (15 Repos)",
+    relationship: "Teammate",
     bio: "Specializing in core backend infrastructure, scalable server APIs, and database engineering that power complex client web systems.",
     skills: ["Node.js", "Express", "Nest.js", "MongoDB", "PostgreSQL", "Docker"],
     links: {
@@ -119,10 +118,9 @@ const PEERS_DATA: DeveloperPeer[] = [
     id: "2",
     name: "Md Tahmid Alam",
     role: "Frontend Engineer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/103018071?v=4",
     category: "Frontend",
-    relationship: "SM Technology Teammate (12 Repos)",
+    relationship: "Teammate",
     bio: "Crafting modern, accessible, and high-performance user interfaces and responsive client dashboards with React and Next.js.",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "UI/UX"],
     links: {
@@ -134,10 +132,9 @@ const PEERS_DATA: DeveloperPeer[] = [
     id: "3",
     name: "Apu Sutra Dhar",
     role: "Full-Stack Developer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/101419595?v=4",
     category: "Full-Stack",
-    relationship: "SM Technology Collaborator (11 Repos)",
+    relationship: "Collaborator",
     bio: "Full-stack developer architecting end-to-end web applications, server APIs, and integrated database solutions.",
     skills: ["Node.js", "React", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
     links: {
@@ -149,10 +146,9 @@ const PEERS_DATA: DeveloperPeer[] = [
     id: "4",
     name: "Irfan Ekon",
     role: "Mobile Application Developer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/96953316?v=4",
     category: "Mobile App",
-    relationship: "SM Technology App Co-Builder (3 Repos)",
+    relationship: "Collaborator",
     bio: "Mobile app developer at SM Technology specializing in cross-platform mobile experiences and seamless API integrations.",
     skills: ["React Native", "Flutter", "JavaScript", "Mobile UI", "REST APIs"],
     links: {
@@ -164,10 +160,9 @@ const PEERS_DATA: DeveloperPeer[] = [
     id: "5",
     name: "MD. Shahriar Nur",
     role: "Mobile & Frontend Developer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/95541859?v=4",
     category: "Mobile App",
-    relationship: "SM Technology Collaborator (3 Repos)",
+    relationship: "Collaborator",
     bio: "Engineering performant cross-platform mobile apps and modern front-end interfaces with clean architecture.",
     skills: ["Flutter", "React Native", "React", "JavaScript", "Mobile Development"],
     links: {
@@ -177,27 +172,11 @@ const PEERS_DATA: DeveloperPeer[] = [
   },
   {
     id: "6",
-    name: "Abu Rahat Shaum",
-    role: "Full-Stack Developer",
-    company: "SM Technology",
-    avatar: "https://avatars.githubusercontent.com/u/146001390?v=4",
-    category: "Full-Stack",
-    relationship: "SM Technology Collaborator (2 Repos)",
-    bio: "Building clean, full-stack client web solutions with Next.js, modern backend services, and scalable database schemas.",
-    skills: ["Next.js", "Node.js", "Express", "TypeScript", "Tailwind CSS"],
-    links: {
-      github: "https://github.com/AbuRahat889",
-      website: "https://aburahat.vercel.app",
-    },
-  },
-  {
-    id: "7",
     name: "Parvej Mahmud",
     role: "Mobile App Developer (Flutter)",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/90233130?v=4",
     category: "Mobile App",
-    relationship: "SM Technology Mobile Collaborator",
+    relationship: "Collaborator",
     bio: "Specializing in Flutter mobile development, state management, and reliable backend service integration.",
     skills: ["Flutter", "Dart", "Firebase", "Mobile Architecture", "REST APIs"],
     links: {
@@ -205,13 +184,12 @@ const PEERS_DATA: DeveloperPeer[] = [
     },
   },
   {
-    id: "8",
+    id: "7",
     name: "Junayet Alam",
     role: "Backend Developer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/138348590?v=4",
     category: "Backend / DevOps",
-    relationship: "SM Technology Collaborator",
+    relationship: "Collaborator",
     bio: "Backend developer specializing in scalable Node.js & Express architectures, PostgreSQL database design, and API performance optimization.",
     skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "TypeScript", "REST APIs"],
     links: {
@@ -221,13 +199,12 @@ const PEERS_DATA: DeveloperPeer[] = [
     },
   },
   {
-    id: "9",
+    id: "8",
     name: "Abu Saiyed Joy",
     role: "Full-Stack Developer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/153846355?v=4",
     category: "Full-Stack",
-    relationship: "SM Technology Collaborator",
+    relationship: "Collaborator",
     bio: "Full-stack developer specializing in the MERN stack and Next.js, building scalable, responsive web applications and secure API backends.",
     skills: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB"],
     links: {
@@ -237,13 +214,12 @@ const PEERS_DATA: DeveloperPeer[] = [
     },
   },
   {
-    id: "10",
+    id: "9",
     name: "MD Nurullah Bhuiyan",
     role: "Full-Stack Developer",
-    company: "SM Technology",
     avatar: "https://avatars.githubusercontent.com/u/121657120?v=4",
     category: "Full-Stack",
-    relationship: "SM Technology Collaborator",
+    relationship: "Collaborator",
     bio: "Full-stack developer crafting scalable web applications with MERN stack, TypeScript, and modern component systems.",
     skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Redux"],
     links: {
@@ -254,13 +230,12 @@ const PEERS_DATA: DeveloperPeer[] = [
     },
   },
   {
-    id: "11",
+    id: "10",
     name: "Tanvir Hossain",
     role: "Full-Stack Developer",
-    company: "Shakil Education Group",
     avatar: "https://avatars.githubusercontent.com/u/87421998?v=4",
     category: "Full-Stack",
-    relationship: "SM Technology Collaborator",
+    relationship: "Collaborator",
     bio: "Full-stack and Node.js-focused engineer building fast, clean, and accessible web solutions from ideas to interfaces and the cloud.",
     skills: ["TypeScript", "Next.js", "React", "Node.js", "Prisma", "Express"],
     links: {
@@ -379,7 +354,7 @@ export function NetworkPage() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search peers, skills, company..."
+              placeholder="Search peers, skills..."
               className="h-9 w-full rounded-xl border border-zinc-200/80 bg-white/70 pl-8.5 pr-8 text-[12.5px] text-zinc-900 placeholder:text-zinc-400 transition-all focus:border-zinc-400 focus:bg-white focus:outline-hidden dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-white/20 dark:focus:bg-zinc-900"
             />
             {searchQuery && (
@@ -421,7 +396,7 @@ export function NetworkPage() {
                     </div>
 
                     <span className="truncate font-sans text-[12.5px] text-zinc-500 dark:text-zinc-400">
-                      {peer.role} {peer.company ? `• ${peer.company}` : ""}
+                      {peer.role}
                     </span>
 
                     <span className="mt-0.5 inline-block font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
