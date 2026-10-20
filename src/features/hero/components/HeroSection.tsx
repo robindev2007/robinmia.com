@@ -208,7 +208,7 @@ export function HeroSection() {
             <p className="mt-3 text-left font-sans text-[14px] leading-relaxed tracking-wide text-zinc-600 sm:mt-4 sm:text-justify dark:text-zinc-400">
               I design and engineer end-to-end web applications with a focus on
               high performance, clean architecture, and fluid user experiences.
-              Specialized in TypeScript, React, Next.js, and Node/Nest.js —
+              Specialized in TypeScript, React, Next.js, and Node/Nest.js,
               bridging thoughtful interface design with scalable backend
               systems.
             </p>

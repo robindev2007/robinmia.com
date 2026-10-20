@@ -4,7 +4,7 @@ import { Header } from "@/components/shared/header";
 import { NetworkPage } from "@/features/network";
 
 export const metadata: Metadata = {
-  title: "People & Teammates — Robin Mia",
+  title: "People & Teammates | Robin Mia",
   description:
     "Talented engineers, product builders, designers, and creators I've had the privilege of working with, building alongside, or learning from.",
 };

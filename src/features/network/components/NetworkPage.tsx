@@ -126,6 +126,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     avatar: "https://avatars.githubusercontent.com/u/95541859?v=4",
     category: "Mobile App",
     relationship: "Teammate",
+    isAlumni: false,
     bio: "Engineering performant cross-platform mobile apps and modern front-end interfaces with clean architecture.",
     skills: ["Flutter", "React Native", "React", "JavaScript", "Mobile Development"],
     links: {
@@ -140,69 +141,11 @@ const PEERS_DATA: DeveloperPeer[] = [
     avatar: "/salam.jpg",
     category: "UI/UX Design",
     relationship: "Teammate",
+    isAlumni: false,
     bio: "UI/UX designer with 2+ years of experience designing user-centric web and mobile interfaces, product workflows, and modern visual design.",
     skills: ["UI/UX Design", "Figma", "Product Design", "User Research", "Wireframing", "Web Design"],
     links: {
       linkedin: "https://www.linkedin.com/in/salam2396/",
-    },
-  },
-  {
-    id: "3",
-    name: "Junayet Alam",
-    role: "Backend Developer",
-    avatar: "https://avatars.githubusercontent.com/u/138348590?v=4",
-    category: "Backend / DevOps",
-    relationship: "Teammate",
-    bio: "Backend developer specializing in scalable Node.js & Express architectures, PostgreSQL database design, and API performance optimization.",
-    skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "TypeScript", "REST APIs"],
-    links: {
-      github: "https://github.com/JunayetAlam",
-      linkedin: "https://www.linkedin.com/in/junayet-alam/",
-      website: "https://www.junayetalam.me",
-    },
-  },
-  {
-    id: "4",
-    name: "Tanvir Hossain",
-    role: "Full-Stack Developer",
-    avatar: "https://avatars.githubusercontent.com/u/87421998?v=4",
-    category: "Full-Stack",
-    relationship: "Teammate",
-    bio: "Full-stack and Node.js-focused engineer building fast, clean, and accessible web solutions from ideas to interfaces and the cloud.",
-    skills: ["TypeScript", "Next.js", "React", "Node.js", "Prisma", "Express"],
-    links: {
-      github: "https://github.com/tanvir1017",
-      twitter: "https://x.com/tanvir1017",
-      website: "https://tanvircodes.com",
-    },
-  },
-  {
-    id: "5",
-    name: "Walid Khan",
-    role: "UI/UX & Product Designer",
-    avatar: "/walid.jpg",
-    category: "UI/UX Design",
-    relationship: "Teammate",
-    bio: "UI/UX designer with a software engineering background, crafting clean, intuitive digital experiences, mobile platforms, and scalable design systems.",
-    skills: ["UI/UX Design", "Figma", "Design Systems", "Mobile UI", "Web Design", "Prototyping"],
-    links: {
-      dribbble: "http://dribbble.com/walid_K02013",
-    },
-  },
-  {
-    id: "6",
-    name: "MD Nurullah Bhuiyan",
-    role: "Full-Stack Developer",
-    avatar: "https://avatars.githubusercontent.com/u/121657120?v=4",
-    category: "Full-Stack",
-    relationship: "Teammate",
-    bio: "Full-stack developer crafting scalable web applications with MERN stack, TypeScript, and modern component systems.",
-    skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Redux"],
-    links: {
-      github: "https://github.com/nurullah91",
-      linkedin: "https://linkedin.com/in/nurullahbhuiyan91",
-      twitter: "https://x.com/BMNurullah",
-      website: "https://www.nurullahbhuiyan.com",
     },
   },
   {
@@ -212,6 +155,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     avatar: "https://avatars.githubusercontent.com/u/97081979?v=4",
     category: "Backend / DevOps",
     relationship: "Teammate",
+    isAlumni: false,
     bio: "Specializing in core backend infrastructure, scalable server APIs, and database engineering that power complex client web systems.",
     skills: ["Node.js", "Express", "Nest.js", "MongoDB", "PostgreSQL", "Docker"],
     links: {
@@ -226,25 +170,12 @@ const PEERS_DATA: DeveloperPeer[] = [
     avatar: "https://avatars.githubusercontent.com/u/103018071?v=4",
     category: "Frontend",
     relationship: "Teammate",
+    isAlumni: false,
     bio: "Crafting modern, accessible, and high-performance user interfaces and responsive client dashboards with React and Next.js.",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "UI/UX"],
     links: {
       github: "https://github.com/tahmid122",
       website: "https://tahmidalam.vercel.app/",
-    },
-  },
-  {
-    id: "9",
-    name: "Apu Sutra Dhar",
-    role: "Full-Stack Developer",
-    avatar: "https://avatars.githubusercontent.com/u/101419595?v=4",
-    category: "Full-Stack",
-    relationship: "Teammate",
-    bio: "Full-stack developer architecting end-to-end web applications, server APIs, and integrated database solutions.",
-    skills: ["Node.js", "React", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
-    links: {
-      github: "https://github.com/apucsd",
-      website: "https://apusutradhar.online",
     },
   },
   {
@@ -254,6 +185,7 @@ const PEERS_DATA: DeveloperPeer[] = [
     avatar: "https://avatars.githubusercontent.com/u/96953316?v=4",
     category: "Mobile App",
     relationship: "Teammate",
+    isAlumni: false,
     bio: "Mobile app developer at SM Technology specializing in cross-platform mobile experiences and seamless API integrations.",
     skills: ["React Native", "Flutter", "JavaScript", "Mobile UI", "REST APIs"],
     links: {
@@ -262,12 +194,91 @@ const PEERS_DATA: DeveloperPeer[] = [
     },
   },
   {
+    id: "3",
+    name: "Junayet Alam",
+    role: "Backend Developer",
+    avatar: "https://avatars.githubusercontent.com/u/138348590?v=4",
+    category: "Backend / DevOps",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
+    bio: "Backend developer specializing in scalable Node.js & Express architectures, PostgreSQL database design, and API performance optimization.",
+    skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "TypeScript", "REST APIs"],
+    links: {
+      github: "https://github.com/JunayetAlam",
+      linkedin: "https://www.linkedin.com/in/junayet-alam/",
+      website: "https://www.junayetalam.me",
+    },
+  },
+  {
+    id: "4",
+    name: "Tanvir Hossain",
+    role: "Full-Stack Developer",
+    avatar: "https://avatars.githubusercontent.com/u/87421998?v=4",
+    category: "Full-Stack",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
+    bio: "Full-stack and Node.js-focused engineer building fast, clean, and accessible web solutions from ideas to interfaces and the cloud.",
+    skills: ["TypeScript", "Next.js", "React", "Node.js", "Prisma", "Express"],
+    links: {
+      github: "https://github.com/tanvir1017",
+      twitter: "https://x.com/tanvir1017",
+      website: "https://tanvircodes.com",
+    },
+  },
+  {
+    id: "5",
+    name: "Walid Khan",
+    role: "UI/UX & Product Designer",
+    avatar: "/walid.jpg",
+    category: "UI/UX Design",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
+    bio: "UI/UX designer with a software engineering background, crafting clean, intuitive digital experiences, mobile platforms, and scalable design systems.",
+    skills: ["UI/UX Design", "Figma", "Design Systems", "Mobile UI", "Web Design", "Prototyping"],
+    links: {
+      dribbble: "http://dribbble.com/walid_K02013",
+    },
+  },
+  {
+    id: "6",
+    name: "MD Nurullah Bhuiyan",
+    role: "Full-Stack Developer",
+    avatar: "https://avatars.githubusercontent.com/u/121657120?v=4",
+    category: "Full-Stack",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
+    bio: "Full-stack developer crafting scalable web applications with MERN stack, TypeScript, and modern component systems.",
+    skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Redux"],
+    links: {
+      github: "https://github.com/nurullah91",
+      linkedin: "https://linkedin.com/in/nurullahbhuiyan91",
+      twitter: "https://x.com/BMNurullah",
+      website: "https://www.nurullahbhuiyan.com",
+    },
+  },
+  {
+    id: "9",
+    name: "Apu Sutra Dhar",
+    role: "Full-Stack Developer",
+    avatar: "https://avatars.githubusercontent.com/u/101419595?v=4",
+    category: "Full-Stack",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
+    bio: "Full-stack developer architecting end-to-end web applications, server APIs, and integrated database solutions.",
+    skills: ["Node.js", "React", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
+    links: {
+      github: "https://github.com/apucsd",
+      website: "https://apusutradhar.online",
+    },
+  },
+  {
     id: "11",
     name: "Parvej Mahmud",
     role: "Mobile App Developer (Flutter)",
     avatar: "https://avatars.githubusercontent.com/u/90233130?v=4",
     category: "Mobile App",
-    relationship: "Teammate",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
     bio: "Specializing in Flutter mobile development, state management, and reliable backend service integration.",
     skills: ["Flutter", "Dart", "Firebase", "Mobile Architecture", "REST APIs"],
     links: {
@@ -280,7 +291,8 @@ const PEERS_DATA: DeveloperPeer[] = [
     role: "Full-Stack Developer",
     avatar: "https://avatars.githubusercontent.com/u/153846355?v=4",
     category: "Full-Stack",
-    relationship: "Teammate",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
     bio: "Full-stack developer specializing in the MERN stack and Next.js, building scalable, responsive web applications and secure API backends.",
     skills: ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB"],
     links: {
@@ -300,30 +312,54 @@ const CATEGORIES = [
   "UI/UX Design",
 ] as const;
 
+type StatusFilter = "all" | "active" | "ex";
+
 export function NetworkPage() {
+  const [selectedStatus, setSelectedStatus] = useState<StatusFilter>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const activeCount = useMemo(
+    () => PEERS_DATA.filter((p) => !p.isAlumni).length,
+    []
+  );
+  const exCount = useMemo(
+    () => PEERS_DATA.filter((p) => p.isAlumni).length,
+    []
+  );
 
   const filteredPeers = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return PEERS_DATA.filter((peer) => {
+      const matchesStatus =
+        selectedStatus === "all" ||
+        (selectedStatus === "active" && !peer.isAlumni) ||
+        (selectedStatus === "ex" && peer.isAlumni);
+
+      if (!matchesStatus) return false;
+
       const matchesCategory =
         selectedCategory === "All" || peer.category === selectedCategory;
 
       if (!matchesCategory) return false;
       if (!q) return true;
 
-      return (
-        peer.name.toLowerCase().includes(q) ||
-        peer.role.toLowerCase().includes(q) ||
-        (peer.company && peer.company.toLowerCase().includes(q)) ||
-        peer.relationship.toLowerCase().includes(q) ||
-        peer.category.toLowerCase().includes(q) ||
-        peer.bio.toLowerCase().includes(q) ||
-        peer.skills.some((s) => s.toLowerCase().includes(q))
-      );
+      const searchTerms = [
+        peer.name,
+        peer.role,
+        peer.company || "",
+        peer.relationship,
+        peer.category,
+        peer.bio,
+        peer.isAlumni ? "ex old alumni former" : "active current teammate",
+        ...peer.skills,
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      return searchTerms.includes(q);
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, selectedStatus, searchQuery]);
 
   return (
     <div className="w-full max-w-3xl pb-24">
@@ -341,10 +377,10 @@ export function NetworkPage() {
           <div className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-400 dark:text-zinc-500">
             <Users className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
             <span>
-              {searchQuery || selectedCategory !== "All"
+              {searchQuery || selectedCategory !== "All" || selectedStatus !== "all"
                 ? `${filteredPeers.length} of ${PEERS_DATA.length}`
                 : PEERS_DATA.length}{" "}
-              Teammates
+              People
             </span>
           </div>
         </div>
@@ -371,7 +407,70 @@ export function NetworkPage() {
 
       {/* Filter Tabs & Search Bar */}
       <BlurFade delay={0.12} yOffset={6} blur="4px">
-        <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-3.5">
+          {/* Status Segmented Control & Search Bar */}
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="inline-flex items-center gap-1 rounded-xl bg-zinc-100/80 p-1 dark:bg-zinc-900/60 w-fit">
+              <button
+                type="button"
+                onClick={() => setSelectedStatus("all")}
+                className={`cursor-pointer rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all ${
+                  selectedStatus === "all"
+                    ? "bg-white text-zinc-950 shadow-2xs dark:bg-zinc-800 dark:text-zinc-100"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                }`}
+              >
+                All ({PEERS_DATA.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedStatus("active")}
+                className={`cursor-pointer inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all ${
+                  selectedStatus === "active"
+                    ? "bg-white text-emerald-700 shadow-2xs dark:bg-zinc-800 dark:text-emerald-400"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                }`}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                Current Team ({activeCount})
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedStatus("ex")}
+                className={`cursor-pointer inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all ${
+                  selectedStatus === "ex"
+                    ? "bg-white text-zinc-950 shadow-2xs dark:bg-zinc-800 dark:text-zinc-100"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                }`}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500" />
+                Ex-Members ({exCount})
+              </button>
+            </div>
+
+            {/* Search Box with Clear Button */}
+            <div className="relative w-full sm:w-64">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search peers, skills..."
+                className="h-9 w-full rounded-xl border border-zinc-200/80 bg-white/70 pl-8.5 pr-8 text-[12.5px] text-zinc-900 placeholder:text-zinc-400 transition-all focus:border-zinc-400 focus:bg-white focus:outline-hidden dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-white/20 dark:focus:bg-zinc-900"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 cursor-pointer p-0.5 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
+                  aria-label="Clear search"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Category Filter Pills (Scrollable on small mobile screens) */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0 scrollbar-none">
             {CATEGORIES.map((cat) => {
@@ -391,28 +490,6 @@ export function NetworkPage() {
                 </button>
               );
             })}
-          </div>
-
-          {/* Search Box with Clear Button */}
-          <div className="relative w-full sm:w-64">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search peers, skills..."
-              className="h-9 w-full rounded-xl border border-zinc-200/80 bg-white/70 pl-8.5 pr-8 text-[12.5px] text-zinc-900 placeholder:text-zinc-400 transition-all focus:border-zinc-400 focus:bg-white focus:outline-hidden dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-white/20 dark:focus:bg-zinc-900"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 cursor-pointer p-0.5 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
-                aria-label="Clear search"
-              >
-                <X className="h-3.5 w-3.5" />
-              </button>
-            )}
           </div>
         </div>
       </BlurFade>
@@ -560,6 +637,7 @@ export function NetworkPage() {
             onClick={() => {
               setSearchQuery("");
               setSelectedCategory("All");
+              setSelectedStatus("all");
             }}
             className="apple-btn mt-4 inline-flex items-center gap-1.5 rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-medium text-white shadow-2xs hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
           >

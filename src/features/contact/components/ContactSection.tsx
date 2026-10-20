@@ -78,7 +78,7 @@ export function ContactSection() {
               </h3>
               <p className="max-w-xl font-sans text-[14px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Whether you have an exciting full-stack opportunity, want to
-                collaborate on an open-source project, or simply want to say hi —
+                collaborate on an open-source project, or simply want to say hi,
                 my inbox is always open.
               </p>
             </div>

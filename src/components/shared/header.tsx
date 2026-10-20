@@ -81,7 +81,7 @@ export function Header() {
     let lastW = 0;
     let lastH = 0;
 
-    // Liquid Glass displacement map — ported 1:1 from Inspira UI / open-design.ai
+    // Liquid Glass displacement map - ported 1:1 from Inspira UI / open-design.ai
     // (radius 16, border 0.07, lightness 50, alpha 0.93, blur 11, blend "difference").
     const buildGlassMap = (w: number, h: number) => {
       const radius = Math.round(Math.min(w, h) / 2);

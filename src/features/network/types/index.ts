@@ -6,6 +6,7 @@ export interface DeveloperPeer {
   avatar: string;
   category: "Full-Stack" | "Frontend" | "Backend / DevOps" | "Mobile App" | "Product & Engineering" | "Open Source" | "UI/UX Design";
   relationship: string;
+  isAlumni?: boolean;
   bio: string;
   skills: string[];
   links: {
