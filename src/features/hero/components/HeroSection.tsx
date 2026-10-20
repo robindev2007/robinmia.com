@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { BlurFade } from "@/components/ui/blur-fade";
 import { openResumeModal } from "@/components/shared/resume-modal";
+import { BlurFade } from "@/components/ui/blur-fade";
+import Image from "next/image";
 
 interface WorkExperience {
   company: string;
@@ -36,7 +35,7 @@ interface SkillCategory {
 const WORK_EXPERIENCES: WorkExperience[] = [
   {
     company: "SM Technology - Betopia Group",
-    role: "Full-Stack Engineer, Team Lead",
+    role: "Full-Stack Engineer",
     period: "Apr 2024 - Jun 2025 • 1 yr 2 mos",
     logo: "/companies/smt.png",
   },
@@ -107,8 +106,16 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Tools & Libraries",
     skills: [
-      { name: "TanStack Router", icon: "/icons/tanstack.svg", invertInDark: true },
-      { name: "TanStack Query", icon: "/icons/tanstack.svg", invertInDark: true },
+      {
+        name: "TanStack Router",
+        icon: "/icons/tanstack.svg",
+        invertInDark: true,
+      },
+      {
+        name: "TanStack Query",
+        icon: "/icons/tanstack.svg",
+        invertInDark: true,
+      },
       { name: "Zod", icon: "/icons/zod.svg" },
       { name: "Vite", icon: "/icons/vite.svg" },
       { name: "Docker", icon: "/icons/docker.svg" },
@@ -155,7 +162,11 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Coder Related",
     skills: [
-      { name: "Antigravity", icon: "/icons/antigravity.svg", invertInDark: true },
+      {
+        name: "Antigravity",
+        icon: "/icons/antigravity.svg",
+        invertInDark: true,
+      },
       { name: "Copilot", icon: "/icons/copilot.svg", invertInDark: true },
       { name: "Git", icon: "/icons/git.svg" },
       { name: "Deep Seek", icon: "/icons/deepseek.svg", invertInDark: true },
@@ -172,7 +183,10 @@ const BLUR_FADE_DELAY = 0.04;
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative z-10 w-full max-w-3xl px-4 py-8 sm:px-8 sm:py-16 scroll-mt-24">
+    <section
+      id="top"
+      className="relative z-10 w-full max-w-3xl scroll-mt-24 px-4 py-8 sm:px-8 sm:py-16"
+    >
       <div className="flex flex-col items-start justify-start gap-6 sm:flex-row sm:gap-10">
         {/* Avatar & Identity */}
         <BlurFade delay={BLUR_FADE_DELAY} yOffset={8} blur="6px">
@@ -200,7 +214,7 @@ export function HeroSection() {
         </BlurFade>
 
         {/* Bio, Socials & Buttons */}
-        <div className="flex min-w-0 w-full flex-col justify-start pt-1">
+        <div className="flex w-full min-w-0 flex-col justify-start pt-1">
           <BlurFade delay={BLUR_FADE_DELAY * 2} yOffset={8} blur="6px">
             <h2 className="font-sans text-base font-semibold tracking-tight text-zinc-900 sm:text-lg md:text-xl dark:text-zinc-100">
               Full-Stack Engineer &amp; Product Builder
@@ -313,7 +327,10 @@ export function HeroSection() {
 
       {/* Work Experience Section */}
       <BlurFade delay={BLUR_FADE_DELAY * 5} yOffset={8} blur="6px">
-        <div id="experience" className="mt-14 flex w-full flex-col gap-5 scroll-mt-20">
+        <div
+          id="experience"
+          className="mt-14 flex w-full scroll-mt-20 flex-col gap-5"
+        >
           <h3 className="font-sans text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100">
             Work Experience
           </h3>
@@ -327,7 +344,7 @@ export function HeroSection() {
                 blur="4px"
               >
                 <div className="apple-experience group flex items-center justify-between gap-4 rounded-xl bg-white/40 p-3.5 transition-all duration-200 hover:bg-white/80 dark:bg-zinc-900/20 dark:hover:bg-zinc-900/50">
-                  <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="flex min-w-0 items-center gap-3.5">
                     <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-zinc-200/80 bg-white p-1 shadow-2xs dark:border-zinc-800 dark:bg-zinc-950">
                       <Image
                         src={exp.logo}
@@ -336,7 +353,7 @@ export function HeroSection() {
                         className="object-contain p-1"
                       />
                     </div>
-                    <div className="flex flex-col min-w-0">
+                    <div className="flex min-w-0 flex-col">
                       <span className="truncate font-sans text-[14px] font-semibold text-zinc-900 dark:text-zinc-100">
                         {exp.company}
                       </span>
@@ -347,7 +364,7 @@ export function HeroSection() {
                   </div>
 
                   <div className="shrink-0 text-right">
-                    <span className="font-mono text-[11px] tabular-nums text-zinc-400 dark:text-zinc-500">
+                    <span className="font-mono text-[11px] text-zinc-400 tabular-nums dark:text-zinc-500">
                       {exp.period}
                     </span>
                   </div>
@@ -360,7 +377,10 @@ export function HeroSection() {
 
       {/* Skills & Tools Grouped Section */}
       <BlurFade delay={BLUR_FADE_DELAY * 8} yOffset={8} blur="6px">
-        <div id="skills" className="mt-14 flex w-full flex-col gap-6 scroll-mt-20">
+        <div
+          id="skills"
+          className="mt-14 flex w-full scroll-mt-20 flex-col gap-6"
+        >
           <h3 className="font-sans text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100">
             Skills &amp; Tools
           </h3>
@@ -373,7 +393,7 @@ export function HeroSection() {
                 yOffset={6}
                 blur="4px"
               >
-                <div className="grid grid-cols-1 gap-2 border-b border-zinc-200/40 pb-4 sm:grid-cols-12 sm:items-start sm:gap-4 dark:border-zinc-800/40 last:border-b-0 last:pb-0">
+                <div className="grid grid-cols-1 gap-2 border-b border-zinc-200/40 pb-4 last:border-b-0 last:pb-0 sm:grid-cols-12 sm:items-start sm:gap-4 dark:border-zinc-800/40">
                   <div className="sm:col-span-4">
                     <h4 className="font-mono text-[13px] font-medium tracking-wide text-zinc-500 dark:text-zinc-400">
                       {category.title}
@@ -391,7 +411,7 @@ export function HeroSection() {
                           alt={skill.name}
                           width={14}
                           height={14}
-                          className={`h-3.5 w-3.5 object-contain shrink-0 ${
+                          className={`h-3.5 w-3.5 shrink-0 object-contain ${
                             skill.invertInDark ? "dark:invert" : ""
                           }`}
                         />
@@ -410,7 +430,10 @@ export function HeroSection() {
 
       {/* Featured Projects Section */}
       <BlurFade delay={BLUR_FADE_DELAY * 12} yOffset={8} blur="6px">
-        <div id="projects" className="mt-14 flex w-full flex-col gap-5 scroll-mt-20">
+        <div
+          id="projects"
+          className="mt-14 flex w-full scroll-mt-20 flex-col gap-5"
+        >
           <div className="flex items-center justify-between">
             <h3 className="font-sans text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100">
               Featured Projects
@@ -464,7 +487,7 @@ export function HeroSection() {
                         <h4 className="font-sans text-[15px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
                           {proj.title}
                         </h4>
-                        <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="flex shrink-0 items-center gap-1.5">
                           {proj.githubUrl && (
                             <a
                               href={proj.githubUrl}
@@ -539,4 +562,3 @@ export function HeroSection() {
 }
 
 export default HeroSection;
-
