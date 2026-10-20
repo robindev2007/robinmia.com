@@ -36,7 +36,7 @@ interface SkillCategory {
 const WORK_EXPERIENCES: WorkExperience[] = [
   {
     company: "SM Technology - Betopia Group",
-    role: "Software Engineer, Team Lead",
+    role: "Full-Stack Engineer, Team Lead",
     period: "Apr 2024 - Jun 2025 • 1 yr 2 mos",
     logo: "/companies/smt.png",
   },
