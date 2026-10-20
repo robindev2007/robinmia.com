@@ -5,6 +5,8 @@ import { ArrowUpRight, FileText, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { openResumeModal } from "@/components/shared/resume-modal";
+import { sound } from "@/lib/sound";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -279,17 +281,16 @@ export function Header() {
         <Mail className="h-4 w-4" />
       </Link>
 
-      <Link
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Resume"
-        className="apple-btn flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+      <button
+        type="button"
+        onClick={() => openResumeModal()}
+        aria-label="Preview Resume"
+        className="apple-btn flex cursor-pointer items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
       >
         <FileText className="h-3.5 w-3.5" />
         <span>Resume</span>
         <ArrowUpRight className="h-3 w-3 opacity-60" />
-      </Link>
+      </button>
 
       {/* Theme Toggle Button */}
       <ThemeToggle />
@@ -328,17 +329,16 @@ export function Header() {
       {/* Mobile & Tablet Controls (< 1024px) */}
       <div className="flex items-center gap-2 lg:hidden">
         {/* Quick Resume Link on Tablet / Larger mobile */}
-        <Link
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Resume"
-          className="apple-btn hidden items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 sm:flex dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+        <button
+          type="button"
+          onClick={() => openResumeModal()}
+          aria-label="Preview Resume"
+          className="apple-btn hidden cursor-pointer items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 sm:flex dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
         >
           <FileText className="h-3.5 w-3.5" />
           <span>Resume</span>
           <ArrowUpRight className="h-3 w-3 opacity-60" />
-        </Link>
+        </button>
 
         {/* Quick Theme Toggle directly accessible */}
         <ThemeToggle />
@@ -348,7 +348,10 @@ export function Header() {
           type="button"
           aria-label="Menu"
           aria-expanded={open}
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => {
+            sound.playClick();
+            setOpen((prev) => !prev);
+          }}
           className="apple-btn flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/60 text-zinc-800 transition-all duration-200 hover:scale-105 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200"
         >
           <div className="relative flex h-3.5 w-4 flex-col items-center justify-center">
@@ -528,17 +531,19 @@ export function Header() {
                       <Mail className="h-4 w-4" />
                     </Link>
 
-                    <Link
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Resume"
-                      className="apple-btn flex items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setOpen(false);
+                        openResumeModal();
+                      }}
+                      aria-label="Preview Resume"
+                      className="apple-btn flex cursor-pointer items-center gap-1.5 rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-zinc-700 transition-all duration-200 hover:scale-105 hover:text-zinc-950 active:scale-95 dark:bg-white/[0.05] dark:text-zinc-200 dark:hover:text-white"
                     >
                       <FileText className="h-3.5 w-3.5" />
                       <span>Resume</span>
                       <ArrowUpRight className="h-3 w-3 opacity-60" />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </nav>

@@ -21,7 +21,11 @@ import {
   Share2,
   Send,
   Users,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
+import { sound } from "@/lib/sound";
+import { openResumeModal } from "@/components/shared/resume-modal";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -59,7 +63,12 @@ function LinkedinIcon({ className }: { className?: string }) {
 
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false);
+  const [soundEnabled, setSoundEnabled] = React.useState(true);
   const { setTheme } = useTheme();
+
+  React.useEffect(() => {
+    setSoundEnabled(sound.isSoundEnabled());
+  }, [open]);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -74,7 +83,12 @@ export function CommandMenu() {
         }
 
         e.preventDefault();
-        setOpen((prev) => !prev);
+        setOpen((prev) => {
+          const next = !prev;
+          if (next) sound.playOpen();
+          else sound.playClick();
+          return next;
+        });
       }
     };
 
@@ -83,9 +97,16 @@ export function CommandMenu() {
   }, []);
 
   const runCommand = React.useCallback((command: () => void) => {
+    sound.playClick();
     setOpen(false);
     command();
   }, []);
+
+  const toggleSoundFx = () => {
+    const next = sound.toggle();
+    setSoundEnabled(next);
+    toast.success(next ? "Sound effects enabled" : "Sound effects muted");
+  };
 
   const scrollToSection = (id: string) => {
     if (id === "top") {
@@ -100,6 +121,7 @@ export function CommandMenu() {
 
   const copyEmail = () => {
     navigator.clipboard.writeText("robindev2007@gmail.com");
+    sound.playSuccess();
     toast.success("Email copied to clipboard!", {
       description: "robindev2007@gmail.com",
     });
@@ -107,6 +129,7 @@ export function CommandMenu() {
 
   const copyPortfolioUrl = () => {
     navigator.clipboard.writeText(window.location.href);
+    sound.playSuccess();
     toast.success("Portfolio link copied to clipboard!", {
       description: window.location.href,
     });
@@ -253,14 +276,14 @@ export function CommandMenu() {
                   <Command.Item
                     onSelect={() =>
                       runCommand(() => {
-                        window.open("/resume.pdf", "_blank");
+                        openResumeModal();
                       })
                     }
                     className="flex cursor-pointer select-none items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[13px] text-zinc-700 outline-hidden transition-colors aria-selected:bg-zinc-100 aria-selected:text-zinc-950 dark:text-zinc-300 dark:aria-selected:bg-zinc-800/90 dark:aria-selected:text-white"
                   >
                     <FileText className="h-4 w-4 text-zinc-400" />
-                    <span>Download / View Resume</span>
-                    <ExternalLink className="ml-auto h-3 w-3 text-zinc-400" />
+                    <span>Preview / Download Resume</span>
+                    <span className="ml-auto font-mono text-[10.5px] text-zinc-400">QuickLook</span>
                   </Command.Item>
 
                   <Command.Item
@@ -338,6 +361,21 @@ export function CommandMenu() {
                   >
                     <Laptop className="h-4 w-4 text-zinc-400" />
                     <span>System Theme</span>
+                  </Command.Item>
+
+                  <Command.Item
+                    onSelect={() => runCommand(toggleSoundFx)}
+                    className="flex cursor-pointer select-none items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[13px] text-zinc-700 outline-hidden transition-colors aria-selected:bg-zinc-100 aria-selected:text-zinc-950 dark:text-zinc-300 dark:aria-selected:bg-zinc-800/90 dark:aria-selected:text-white"
+                  >
+                    {soundEnabled ? (
+                      <Volume2 className="h-4 w-4 text-emerald-500" />
+                    ) : (
+                      <VolumeX className="h-4 w-4 text-zinc-400" />
+                    )}
+                    <span>Sound Effects (SFX)</span>
+                    <span className="ml-auto font-mono text-[11px] text-zinc-400">
+                      {soundEnabled ? "On" : "Muted"}
+                    </span>
                   </Command.Item>
                 </Command.Group>
               </Command.List>

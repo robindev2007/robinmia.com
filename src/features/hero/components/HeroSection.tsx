@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { openResumeModal } from "@/components/shared/resume-modal";
 
 interface WorkExperience {
   company: string;
@@ -288,14 +291,13 @@ export function HeroSection() {
 
               {/* Resume & Get in Touch buttons */}
               <div className="flex w-full items-center gap-3 sm:w-auto">
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="apple-btn flex-1 rounded-xl bg-white px-4 py-2 text-center text-[13px] font-medium tracking-wide text-zinc-800 shadow-2xs transition-all hover:bg-zinc-50 hover:text-zinc-950 active:scale-95 sm:flex-initial dark:bg-[#151516] dark:text-zinc-200 dark:hover:bg-zinc-900 dark:hover:text-white"
+                <button
+                  type="button"
+                  onClick={() => openResumeModal()}
+                  className="apple-btn flex-1 cursor-pointer rounded-xl bg-white px-4 py-2 text-center text-[13px] font-medium tracking-wide text-zinc-800 shadow-2xs transition-all hover:bg-zinc-50 hover:text-zinc-950 active:scale-95 sm:flex-initial dark:bg-[#151516] dark:text-zinc-200 dark:hover:bg-zinc-900 dark:hover:text-white"
                 >
                   Resume
-                </a>
+                </button>
 
                 <a
                   href="#contact"

@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { CommandMenu } from "@/components/shared/command-menu";
+import { ResumeModal } from "@/components/shared/resume-modal";
 import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = Inter({
@@ -48,6 +49,7 @@ export default function RootLayout({
         >
           {children}
           <CommandMenu />
+          <ResumeModal />
           <Toaster position="bottom-right" richColors />
         </ThemeProvider>
       </body>

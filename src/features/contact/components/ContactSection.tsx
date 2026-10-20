@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { sound } from "@/lib/sound";
+import { openResumeModal } from "@/components/shared/resume-modal";
 import { toast } from "sonner";
 import {
   Mail,
@@ -55,6 +57,7 @@ export function ContactSection() {
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
     setCopied(true);
+    sound.playSuccess();
     toast.success("Email copied to clipboard!", {
       description: email,
     });
@@ -151,16 +154,15 @@ export function ContactSection() {
                 <ArrowUpRight className="h-2.5 w-2.5 text-zinc-400" />
               </a>
 
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="apple-btn flex items-center gap-1.5 rounded-lg bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:text-white"
+              <button
+                type="button"
+                onClick={() => openResumeModal()}
+                className="apple-btn flex cursor-pointer items-center gap-1.5 rounded-lg bg-white/50 px-3 py-1.5 font-mono text-[11px] text-zinc-600 transition-all hover:text-zinc-950 dark:bg-zinc-900/40 dark:text-zinc-400 dark:hover:text-white"
               >
                 <FileText className="h-3 w-3" />
                 <span>Resume</span>
                 <ArrowUpRight className="h-2.5 w-2.5 text-zinc-400" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

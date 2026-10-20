@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { DeveloperPeer } from "../types";
+import { sound } from "@/lib/sound";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -413,7 +414,10 @@ export function NetworkPage() {
             <div className="inline-flex items-center gap-1 rounded-xl bg-zinc-100/80 p-1 dark:bg-zinc-900/60 w-fit">
               <button
                 type="button"
-                onClick={() => setSelectedStatus("all")}
+                onClick={() => {
+                  sound.playClick();
+                  setSelectedStatus("all");
+                }}
                 className={`cursor-pointer rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all ${
                   selectedStatus === "all"
                     ? "bg-white text-zinc-950 shadow-2xs dark:bg-zinc-800 dark:text-zinc-100"
@@ -424,7 +428,10 @@ export function NetworkPage() {
               </button>
               <button
                 type="button"
-                onClick={() => setSelectedStatus("active")}
+                onClick={() => {
+                  sound.playClick();
+                  setSelectedStatus("active");
+                }}
                 className={`cursor-pointer inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all ${
                   selectedStatus === "active"
                     ? "bg-white text-emerald-700 shadow-2xs dark:bg-zinc-800 dark:text-emerald-400"
@@ -436,7 +443,10 @@ export function NetworkPage() {
               </button>
               <button
                 type="button"
-                onClick={() => setSelectedStatus("ex")}
+                onClick={() => {
+                  sound.playClick();
+                  setSelectedStatus("ex");
+                }}
                 className={`cursor-pointer inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all ${
                   selectedStatus === "ex"
                     ? "bg-white text-zinc-950 shadow-2xs dark:bg-zinc-800 dark:text-zinc-100"
@@ -479,7 +489,10 @@ export function NetworkPage() {
                 <button
                   key={cat}
                   type="button"
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => {
+                    sound.playClick();
+                    setSelectedCategory(cat);
+                  }}
                   className={`shrink-0 cursor-pointer rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-all active:scale-95 ${
                     isActive
                       ? "apple-btn-primary bg-zinc-900 text-white dark:bg-white dark:text-zinc-950"
@@ -541,7 +554,10 @@ export function NetworkPage() {
                     <button
                       key={skill}
                       type="button"
-                      onClick={() => setSearchQuery(skill)}
+                      onClick={() => {
+                        sound.playClick();
+                        setSearchQuery(skill);
+                      }}
                       title={`Filter by ${skill}`}
                       className="apple-skill cursor-pointer rounded-md bg-zinc-100/70 px-1.5 py-0.5 font-mono text-[9.5px] text-zinc-600 transition-all hover:bg-zinc-200/80 hover:text-zinc-950 active:scale-95 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-700/60 dark:hover:text-white"
                     >
@@ -635,6 +651,7 @@ export function NetworkPage() {
           <button
             type="button"
             onClick={() => {
+              sound.playClick();
               setSearchQuery("");
               setSelectedCategory("All");
               setSelectedStatus("all");
