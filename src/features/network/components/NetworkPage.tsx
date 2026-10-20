@@ -302,6 +302,21 @@ const PEERS_DATA: DeveloperPeer[] = [
       website: "https://abusaiyedjoy.vercel.app",
     },
   },
+  {
+    id: "13",
+    name: "Sadikur Rahman",
+    role: "Mobile App Developer (Flutter)",
+    avatar: "https://avatars.githubusercontent.com/u/172533083?v=4",
+    category: "Mobile App",
+    relationship: "Ex-Teammate",
+    isAlumni: true,
+    bio: "Mobile app developer specializing in cross-platform Flutter applications for Android and iOS, clean state management, and API integrations.",
+    skills: ["Flutter", "Dart", "Android", "iOS", "Mobile UI", "REST APIs"],
+    links: {
+      github: "https://github.com/SadikurRahman1",
+      website: "https://sadikurrahman1.web.app",
+    },
+  },
 ];
 
 const CATEGORIES = [
